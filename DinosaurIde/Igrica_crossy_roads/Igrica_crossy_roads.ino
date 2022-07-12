@@ -222,6 +222,7 @@ void setup() {
 
 void loop() {
   // Kretanje
+  car();
   tft.fillScreen(ILI9341_BLACK);
   dino();
   StanjeTipkala = analogRead(TipkaLR);
