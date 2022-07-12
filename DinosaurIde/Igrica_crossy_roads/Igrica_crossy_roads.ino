@@ -53,8 +53,31 @@ int Xtrokut3.3 = 19;
 int Ytrokut3.3 = 112;
 // mrdanje
 
-int move_body (){
+int move_bodyX (){
   X = X + 20;
+  Xglava =  Xglava + 20;
+  Xoko = Xoko + 20;
+  Xusta1 = Xusta1 + 20;
+  Xusta2 + 20;
+  Xkapa1 + 20;
+  Xkapa2 + 20;
+  Xnoga1 + 20;
+  Xnoga2 + 20;
+  Xrep + 20;
+  Xtrokut1.1 + 20; 
+  Xtrokut1.2 + 20;
+  Xtrokut1.3 + 20;
+  Xtrokut2.1 + 20;
+  Xtrokut2.2 + 20;
+  Xtrokut2.3 + 20;
+  Xtrokut3.1 + 20;
+  Xtrokut3.2 + 20;
+  Xtrokut3.3 + 20;
+  delay(200);
+}
+int move_bodyY (){
+  X = X + 20;
+  Y = Y + 20;
   Xglava =  Xglava + 20;
   Yglava =  Yglava + 20;
   Xoko = Xoko + 20;
@@ -93,7 +116,6 @@ int move_body (){
   Ytrokut3.3 
   delay(200);
 }
-
 void setup() {
   
   pinMode(TipkaLR, INPUT_PULLUP);
@@ -143,7 +165,7 @@ void loop() {
   Serial.println (StanjeTipkala);
   Serial.println  (StanjeTipkalaUD);
   if (StanjeTipkala >= 1300 and StanjeTipkala <= 2100){
- 
+    move_body();
     }
     StanjeTipkalaUD = analogRead(TipkaUD);
 if (StanjeTipkala == 4095){
