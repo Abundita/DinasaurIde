@@ -4,6 +4,7 @@
 #define TFT_DC 21
 Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC);
 // test
+// test 2
 // tipke
 int TipkaLR = 34;
 int TipkaUD = 35;
