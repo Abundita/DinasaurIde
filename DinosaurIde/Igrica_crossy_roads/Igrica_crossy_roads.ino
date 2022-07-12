@@ -1,6 +1,6 @@
 #include <Adafruit_ILI9341.h>
 #include <Adafruit_GFX.H>
-
+// Bruh
 #define TFT_CS  5
 #define TFT_DC 21
 
