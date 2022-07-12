@@ -135,17 +135,14 @@ void setup() {
 }
 
 void loop() {
-
-  // Caracter
- 
-   // Kretanje
-  StanjeTipkala = analogRead(TipkaLR);
-  Serial.println (StanjeTipkala);
-  Serial.println  (StanjeTipkalaUD);
-  if (StanjeTipkala >= 1300 and StanjeTipkala <= 2100){
- 
-    }
-    StanjeTipkalaUD = analogRead(TipkaUD);
+// Kretanje
+StanjeTipkala = analogRead(TipkaLR);
+Serial.println (StanjeTipkala);
+Serial.println  (StanjeTipkalaUD);
+if (StanjeTipkala >= 1300 and StanjeTipkala <= 2100){
+  
+}
+StanjeTipkalaUD = analogRead(TipkaUD);
 if (StanjeTipkala == 4095){
   X = X - 20;
   delay(200);
