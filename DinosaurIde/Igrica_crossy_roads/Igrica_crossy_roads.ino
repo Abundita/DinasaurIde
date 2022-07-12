@@ -177,19 +177,18 @@ void setup() {
     tft.drawTriangle(Xtrokut31, Ytrokut31, Xtrokut32, Ytrokut32, Xtrokut33, Ytrokut33, ILI9341_WHITE);
   } 
   dino();
-
-//auto
-tft.fillRoundRect(200, 65, 31, 42, 5, ILI9341_BLUE);
-//svjetla
-tft.fillRect(203, 70, 6, 4, ILI9341_YELLOW);
-tft.fillRect(222, 70, 6, 4, ILI9341_YELLOW);
-//retrovizori
-tft.fillRect(197, 74, 37, 5, ILI9341_BLUE);
-//staklo
-tft.drawRect(204, 78, 23, 8, ILI9341_BLACK);
-//straznja svjetla
-tft.fillRect(204, 101, 5, 3, ILI9341_RED);
-tft.fillRect(221, 101, 5, 3, ILI9341_RED);
+  //auto
+  tft.fillRoundRect(200, 65, 31, 42, 5, ILI9341_BLUE);
+  //svjetla
+  tft.fillRect(203, 70, 6, 4, ILI9341_YELLOW);
+  tft.fillRect(222, 70, 6, 4, ILI9341_YELLOW);
+  //retrovizori
+  tft.fillRect(197, 74, 37, 5, ILI9341_BLUE);
+  //staklo
+  tft.drawRect(204, 78, 23, 8, ILI9341_BLACK);
+  //straznja svjetla
+  tft.fillRect(204, 101, 5, 3, ILI9341_RED);
+  tft.fillRect(221, 101, 5, 3, ILI9341_RED);
 }
 
 
