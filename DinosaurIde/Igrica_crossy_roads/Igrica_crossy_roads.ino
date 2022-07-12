@@ -117,6 +117,7 @@ int move_bodyYP (){
   Ytrokut31 + 20;
   Ytrokut32 + 20;
   Ytrokut33 + 20;
+  delay (200);
 }
 int move_bodyYM (){
   Y = Y - 20; 
@@ -138,6 +139,7 @@ int move_bodyYM (){
   Ytrokut31 - 20;
   Ytrokut32 - 20;
   Ytrokut33 - 20;
+  delay (200);
 }
 int dino(){
   //character dinosaur
