@@ -23,6 +23,8 @@ int Xusta1 = 41;
 int Yusta1 = 111;
 int Xusta2 = 40;
 int Yusta2 = 110;
+int Xusta3 = 45;
+int Yusta3 = 111;
 int Xkapa1 = 29;
 int Ykapa1 = 101;
 int Xkapa2 = 35;
@@ -61,6 +63,7 @@ int move_bodyXP (){
   Xoko = Xoko + 20;
   Xusta1 = Xusta1 + 20;
   Xusta2 += 20;
+  Xusta3 += 20;
   Xkapa1 += 20;
   Xkapa2 += 20;
   Xkapa3 += 20;
@@ -84,6 +87,7 @@ int move_bodyXM (){
   Xoko = Xoko - 20;
   Xusta1 = Xusta1 - 20;
   Xusta2 -= 20;
+  Xusta3 -= 20;
   Xkapa1 -= 20;
   Xkapa2 -= 20;
   Xkapa3 -= 20;
@@ -107,6 +111,7 @@ int move_bodyYP (){
   Yoko = Yoko + 20;
   Yusta1 += 20;
   Yusta2 += 20;
+  Yusta3 += 20;
   Ykapa1 += 20;
   Ykapa2 += 20;
   Ykapa3 += 20;
@@ -130,6 +135,7 @@ int move_bodyYM (){
   Yoko = Yoko - 20;
   Yusta1 -= 20;
   Yusta2 -= 20;
+  Yusta3 -= 20;
   Ykapa1 -= 20;
   Ykapa2 -= 20;
   Ykapa3 -= 20;
@@ -158,7 +164,7 @@ int dino(){
   
   //oko i usta
   tft.fillRect(Xoko, Yoko, 2, 2, ILI9341_BLACK);
-  tft.drawLine(Xusta1, Yusta1, 45, 111, ILI9341_BLACK);
+  tft.drawLine(Xusta1, Yusta1, Xusta3, Yusta3, ILI9341_BLACK);
   tft.fillRect(Xusta2, Yusta2, 1.5, 1, ILI9341_BLACK);
   
   //kapa
