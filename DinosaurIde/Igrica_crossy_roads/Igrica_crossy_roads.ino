@@ -174,9 +174,9 @@ void setup() {
   tft.fillRect(Xrep, Yrep, 11, 4.5, ILI9341_GREEN);
   
   //bodlje na leđima
-  tft.drawTriangle(Xtrokut1.1, Ytrokut1.1, Xtrokut1.2, Ytrokut1.2, Xtrokut1.3, Ytrokut1.3, ILI9341_WHITE);
-  tft.drawTriangle(Xtrokut2.1, Ytrokut2.1, Xtrokut2.2, Ytrokut2.2, Xtrokut2.3, Ytrokut2.3, ILI9341_WHITE);
-  tft.drawTriangle(Xtrokut3.1, Ytrokut3.1, Xtrokut3.2, Ytrokut3.2, Xtrokut3.3, Ytrokut3.3, ILI9341_WHITE);
+  tft.drawTriangle(Xtrokut11, Ytrokut11, Xtrokut12, Ytrokut12, Xtrokut13, Ytrokut13, ILI9341_WHITE);
+  tft.drawTriangle(Xtrokut21, Ytrokut21, Xtrokut22, Ytrokut22, Xtrokut23, Ytrokut23, ILI9341_WHITE);
+  tft.drawTriangle(Xtrokut31, Ytrokut31, Xtrokut32, Ytrokut32, Xtrokut33, Ytrokut33, ILI9341_WHITE);
 }
 
 void loop() {
