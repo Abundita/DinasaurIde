@@ -139,13 +139,11 @@ int move_bodyYM (){
   Ytrokut32 - 20;
   Ytrokut33 - 20;
 }
+
 void setup() {
-  
   pinMode(TipkaLR, INPUT_PULLUP);
   pinMode(TipkaUD, INPUT_PULLUP);
   Serial.begin (9600);
-
-  
   tft.begin();
   tft.fillScreen(ILI9341_BLACK);
   
@@ -181,20 +179,20 @@ void setup() {
 
 void loop() {
   // Kretanje
+  tft.fillScreen(ILI9341_BLACK);
   StanjeTipkala = analogRead(TipkaLR);
+  StanjeTipkalaUD = analogRead(TipkaUD);
   Serial.println (StanjeTipkala);
   Serial.println  (StanjeTipkalaUD);
   if (StanjeTipkala >= 1300 and StanjeTipkala <= 2100){
     move_bodyXP();
   }
-  StanjeTipkalaUD = analogRead(TipkaUD);
   if (StanjeTipkala == 4095){
     move_bodyXM ();
     }
   if (StanjeTipkalaUD >= 1300 and StanjeTipkalaUD <= 2100){
       move_bodyYP ();
       }
-      StanjeTipkalaUD = analogRead(TipkaUD);
   if (StanjeTipkalaUD == 4095){
       move_bodyYM ();
     }
