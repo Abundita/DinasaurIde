@@ -180,22 +180,22 @@ void setup() {
 }
 
 void loop() {
-// Kretanje
-StanjeTipkala = analogRead(TipkaLR);
-Serial.println (StanjeTipkala);
-Serial.println  (StanjeTipkalaUD);
-if (StanjeTipkala >= 1300 and StanjeTipkala <= 2100){
-  move_bodyXP();
-}
-StanjeTipkalaUD = analogRead(TipkaUD);
-if (StanjeTipkala == 4095){
-  move_bodyXM ();
+  // Kretanje
+  StanjeTipkala = analogRead(TipkaLR);
+  Serial.println (StanjeTipkala);
+  Serial.println  (StanjeTipkalaUD);
+  if (StanjeTipkala >= 1300 and StanjeTipkala <= 2100){
+    move_bodyXP();
   }
-if (StanjeTipkalaUD >= 1300 and StanjeTipkalaUD <= 2100){
-    move_bodyYP ();
+  StanjeTipkalaUD = analogRead(TipkaUD);
+  if (StanjeTipkala == 4095){
+    move_bodyXM ();
     }
-    StanjeTipkalaUD = analogRead(TipkaUD);
-if (StanjeTipkalaUD == 4095){
-    move_bodyYM ();
-  }
+  if (StanjeTipkalaUD >= 1300 and StanjeTipkalaUD <= 2100){
+      move_bodyYP ();
+      }
+      StanjeTipkalaUD = analogRead(TipkaUD);
+  if (StanjeTipkalaUD == 4095){
+      move_bodyYM ();
+    }
 }
