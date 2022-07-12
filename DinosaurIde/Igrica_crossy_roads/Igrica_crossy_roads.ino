@@ -191,39 +191,27 @@ int dino(){
   tft.drawTriangle(Xtrokut21, Ytrokut21, Xtrokut22, Ytrokut22, Xtrokut23, Ytrokut23, ILI9341_WHITE);
   tft.drawTriangle(Xtrokut31, Ytrokut31, Xtrokut32, Ytrokut32, Xtrokut33, Ytrokut33, ILI9341_WHITE);
   } 
+int car(){
+  //auto
+  tft.fillRoundRect(Xauto, Yauto, 31, 42, 5, ILI9341_BLUE);
+  //svjetla
+  tft.fillRect(Xsvjetla1, Ysvjetla1, 6, 4, ILI9341_YELLOW);
+  tft.fillRect(Xsvjetla2, Ysvjetla2, 6, 4, ILI9341_YELLOW);
+  //retrovizori
+  tft.fillRect(Xretrovizor, Yretrovizor, 37, 5, ILI9341_BLUE);
+  //staklo
+  tft.drawRect(Xstaklo, Ystaklo, 23, 8, ILI9341_BLACK);
+  //straznja svjetla
+  tft.fillRect(Xssvjetla1, Yssvjetla1, 5, 3, ILI9341_RED);
+  tft.fillRect(Xssvjetla2, Yssvjetla2, 5, 3, ILI9341_RED);
+}
 void setup() {
   pinMode(TipkaLR, INPUT_PULLUP);
   pinMode(TipkaUD, INPUT_PULLUP);
   Serial.begin (9600);
   tft.begin();
   tft.fillScreen(ILI9341_BLACK);
-  dino();
-  //auto
-  tft.fillRoundRect(200, 65, 31, 42, 5, ILI9341_BLUE);
-  //svjetla
-  tft.fillRect(203, 70, 6, 4, ILI9341_YELLOW);
-  tft.fillRect(222, 70, 6, 4, ILI9341_YELLOW);
-  //retrovizori
-  tft.fillRect(197, 74, 37, 5, ILI9341_BLUE);
-  //staklo
-  tft.drawRect(204, 78, 23, 8, ILI9341_BLACK);
-  //straznja svjetla
-  tft.fillRect(204, 101, 5, 3, ILI9341_RED);
-  tft.fillRect(221, 101, 5, 3, ILI9341_RED);
-
-//auto
-tft.fillRoundRect(Xauto, Yauto, 31, 42, 5, ILI9341_BLUE);
-//svjetla
-tft.fillRect(Xsvjetla1, Ysvjetla1, 6, 4, ILI9341_YELLOW);
-tft.fillRect(Xsvjetla2, Ysvjetla2, 6, 4, ILI9341_YELLOW);
-//retrovizori
-tft.fillRect(Xretrovizori, Yretrovizori, 37, 5, ILI9341_BLUE);
-//staklo
-tft.drawRect(Xstaklo, Ystaklo, 23, 8, ILI9341_BLACK);
-//straznja svjetla
-tft.fillRect(Xssvjetla1, Yssvjetla1, 5, 3, ILI9341_RED);
-tft.fillRect(Xssvjetla2, Yssvjetla2, 5, 3, ILI9341_RED);
-
+  dino();  
 }
 
 void loop() {
