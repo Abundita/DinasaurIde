@@ -9,7 +9,21 @@ int TipkaLR = 34;
 int TipkaUD = 35;
 int StanjeTipkala;
 int StanjeTipkalaUD;
-   
+//auto 
+int Xauto = 200;
+int Yauto = 65;
+int Xsvjetla1 = 203;
+int Ysvjetla1 = 70;
+int Xsvjetla2 = 222;
+int Ysvjetla2 = 70;
+int Xretrovizor = 197;
+int Yretrovizor = 74;
+int Xstaklo = 204;
+int Ystaklo = 78;
+int Xssvjetla1 = 204;
+int Yssvjetla1 = 101;
+int Xssvjetla2 = 221;
+int Yssvjetla2 = 101;
    
   
 // Tijelo i glava
@@ -181,6 +195,20 @@ int dino(){
   //straznja svjetla
   tft.fillRect(204, 101, 5, 3, ILI9341_RED);
   tft.fillRect(221, 101, 5, 3, ILI9341_RED);
+
+//auto
+tft.fillRoundRect(Xauto, Yauto, 31, 42, 5, ILI9341_BLUE);
+//svjetla
+tft.fillRect(Xsvjetla1, Ysvjetla1, 6, 4, ILI9341_YELLOW);
+tft.fillRect(Xsvjetla2, Ysvjetla2, 6, 4, ILI9341_YELLOW);
+//retrovizori
+tft.fillRect(Xretrovizori, Yretrovizori, 37, 5, ILI9341_BLUE);
+//staklo
+tft.drawRect(Xstaklo, Ystaklo, 23, 8, ILI9341_BLACK);
+//straznja svjetla
+tft.fillRect(Xssvjetla1, Yssvjetla1, 5, 3, ILI9341_RED);
+tft.fillRect(Xssvjetla2, Yssvjetla2, 5, 3, ILI9341_RED);
+
 }
 
 void loop() {
