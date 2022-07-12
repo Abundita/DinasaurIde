@@ -96,7 +96,6 @@ int move_body (){
 
 void setup() {
   
-  
   pinMode(TipkaLR, INPUT_PULLUP);
   pinMode(TipkaUD, INPUT_PULLUP);
   Serial.begin (9600);
