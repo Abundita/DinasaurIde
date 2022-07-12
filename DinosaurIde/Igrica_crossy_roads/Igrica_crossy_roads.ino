@@ -12,7 +12,7 @@ int StanjeTipkalaUD;
    
    
   
-   // Tijelo i glava
+// Tijelo i glava
 int X = 20;
 int Y = 110;
 int Xglava = 33;
@@ -51,7 +51,48 @@ int Xtrokut3.2 = 16;
 int Ytrokut3.2 = 109;
 int Xtrokut3.3 = 19;
 int Ytrokut3.3 = 112;
+// mrdanje
 
+int move_body (){
+  X = X + 20;
+  Xglava =  Xglava + 20;
+  Yglava =  Yglava + 20;
+  Xoko = Xoko + 20;
+  Yoko = Yoko + 20;
+  Xusta1 = Xusta1 + 20;
+  Yusta1 + 20;
+  Xusta2 + 20;
+  Yusta2 + 20;
+  Xkapa1 + 20;
+  Ykapa1 + 20;
+  Xkapa2 + 20;
+  Ykapa2 + 20;
+  Xnoga1 + 20;
+  Ynoga1 + 20;
+  Xnoga2 + 20;
+  Ynoga2 + 20;
+  Xrep + 20;
+  Yrep + 20;
+  Xtrokut1.1 + 20;
+  Ytrokut1.1 + 20;
+  Xtrokut1.2 + 20;
+  Ytrokut1.2 + 20;
+  Xtrokut1.3 + 20;
+  Ytrokut1.3 + 20;
+  Xtrokut2.1 + 20;
+  Ytrokut2.1 + 20;
+  Xtrokut2.2 + 20;
+  Ytrokut2.2 + 20;
+  Xtrokut2.3 + 20;
+  Ytrokut2.3 + 20;
+  Xtrokut3.1 + 20;
+  Ytrokut3.1 + 20;
+  Xtrokut3.2 + 20;
+  Ytrokut3.2 + 20;
+  Xtrokut3.3 + 20;
+  Ytrokut3.3 
+  delay(200);
+}
 
 void setup() {
   
@@ -103,44 +144,7 @@ void loop() {
   Serial.println (StanjeTipkala);
   Serial.println  (StanjeTipkalaUD);
   if (StanjeTipkala >= 1300 and StanjeTipkala <= 2100){
-    X = X + 20;
-    Xglava =  Xglava + 20;
-    Yglava =  Yglava + 20;
-    Xoko = Xoko + 20;
-    Yoko = Yoko + 20;
-    Xusta1 = Xusta1 + 20;
-    Yusta1 + 20;
-    Xusta2 + 20;
-    Yusta2 + 20;
-    Xkapa1 + 20;
-    Ykapa1 + 20;
-    Xkapa2 + 20;
-    Ykapa2 + 20;
-    Xnoga1 + 20;
-    Ynoga1 + 20;
-    Xnoga2 + 20;
-    Ynoga2 + 20;
-    Xrep + 20;
-    Yrep + 20;
-    Xtrokut1.1 + 20;
-    Ytrokut1.1 + 20;
-    Xtrokut1.2 + 20;
-    Ytrokut1.2 + 20;
-    Xtrokut1.3 + 20;
-    Ytrokut1.3 + 20;
-    Xtrokut2.1 + 20;
-    Ytrokut2.1 + 20;
-    Xtrokut2.2 + 20;
-    Ytrokut2.2 + 20;
-    Xtrokut2.3 + 20;
-    Ytrokut2.3 + 20;
-    Xtrokut3.1 + 20;
-    Ytrokut3.1 + 20;
-    Xtrokut3.2 + 20;
-    Ytrokut3.2 + 20;
-    Xtrokut3.3 + 20;
-    Ytrokut3.3 
-    delay(200);
+ 
     }
     StanjeTipkalaUD = analogRead(TipkaUD);
 if (StanjeTipkala == 4095){
