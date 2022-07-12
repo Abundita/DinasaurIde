@@ -53,7 +53,7 @@ int Xtrokut33 = 19;
 int Ytrokut33 = 112;
 // mrdanje
 
-int move_bodyX+ (){
+int move_bodyXP (){
   X = X + 20;
   Xglava =  Xglava + 20;
   Xoko = Xoko + 20;
@@ -75,7 +75,7 @@ int move_bodyX+ (){
   Xtrokut33 + 20;
   delay(200);
 }
-int move_bodyX- (){
+int move_bodyXM (){
   X = X - 20;
   Xglava =  Xglava - 20;
   Xoko = Xoko - 20;
@@ -97,7 +97,7 @@ int move_bodyX- (){
   Xtrokut33 - 20;
   delay(200);
 }
-int move_bodyY+ (){
+int move_bodyYP (){
   Y = Y + 20;
   Yglava =  Yglava + 20;
   Yoko = Yoko + 20;
@@ -117,7 +117,27 @@ int move_bodyY+ (){
   Ytrokut31 + 20;
   Ytrokut32 + 20;
   Ytrokut33 + 20;
-  delay(200);
+}
+int move_bodyYM (){
+  Y = Y - 20; 
+  Yglava =  Yglava - 20;
+  Yoko = Yoko - 20;
+  Yusta1 - 20;
+  Yusta2 - 20;
+  Ykapa1 - 20;
+  Ykapa2 - 20;
+  Ynoga1 - 20;
+  Ynoga2 - 20;
+  Yrep - 20;
+  Ytrokut11 - 20;
+  Ytrokut12 - 20;
+  Ytrokut13 - 20;
+  Ytrokut21 - 20;
+  Ytrokut22 - 20;
+  Ytrokut23 - 20;
+  Ytrokut31 - 20;
+  Ytrokut32 - 20;
+  Ytrokut33 - 20;
 }
 void setup() {
   
@@ -165,20 +185,17 @@ StanjeTipkala = analogRead(TipkaLR);
 Serial.println (StanjeTipkala);
 Serial.println  (StanjeTipkalaUD);
 if (StanjeTipkala >= 1300 and StanjeTipkala <= 2100){
-  
+  move_bodyXP();
 }
 StanjeTipkalaUD = analogRead(TipkaUD);
 if (StanjeTipkala == 4095){
-  X = X - 20;
-  delay(200);
+  move_bodyXM ();
   }
 if (StanjeTipkalaUD >= 1300 and StanjeTipkalaUD <= 2100){
-    Y = Y + 20;
-    delay(200);
+    move_bodyYP ();
     }
     StanjeTipkalaUD = analogRead(TipkaUD);
 if (StanjeTipkalaUD == 4095){
-    Y = Y - 20;
-    delay(200);
+    move_bodyYM ();
   }
 }
