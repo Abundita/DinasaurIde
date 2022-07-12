@@ -33,27 +33,27 @@ int Xnoga2 = 36.5;
 int Ynoga2 = 130;
 int Xrep = 10;
 int Yrep = 113;
-int Xtrokut1.1 = 26;
-int Ytrokut1.1 = 109.5;
-int Xtrokut1.2 = 29;
-int Ytrokut1.2 = 106.5;
-int Xtrokut1.3 = 32;
-int Ytrokut1.3 = 109.5;
-int Xtrokut2.1 = 21;
-int Ytrokut2.1 = 109.5;
-int Xtrokut2.2 = 24;
-int Ytrokut2.2 = 106.5;
-int Xtrokut2.3 = 27;
-int Ytrokut2.3 = 109.5;
-int Xtrokut3.1 = 13;
-int Ytrokut3.1 = 112;
-int Xtrokut3.2 = 16;
-int Ytrokut3.2 = 109;
-int Xtrokut3.3 = 19;
-int Ytrokut3.3 = 112;
+int Xtrokut11 = 26;
+int Ytrokut11 = 109.5;
+int Xtrokut12 = 29;
+int Ytrokut12 = 106.5;
+int Xtrokut13 = 32;
+int Ytrokut13 = 109.5;
+int Xtrokut21 = 21;
+int Ytrokut21 = 109.5;
+int Xtrokut22 = 24;
+int Ytrokut22 = 106.5;
+int Xtrokut23 = 27;
+int Ytrokut23 = 109.5;
+int Xtrokut31 = 13;
+int Ytrokut31 = 112;
+int Xtrokut32 = 16;
+int Ytrokut32 = 109;
+int Xtrokut33 = 19;
+int Ytrokut33 = 112;
 // mrdanje
 
-int move_bodyX (){
+int move_bodyX+ (){
   X = X + 20;
   Xglava =  Xglava + 20;
   Xoko = Xoko + 20;
@@ -64,56 +64,59 @@ int move_bodyX (){
   Xnoga1 + 20;
   Xnoga2 + 20;
   Xrep + 20;
-  Xtrokut1.1 + 20; 
-  Xtrokut1.2 + 20;
-  Xtrokut1.3 + 20;
-  Xtrokut2.1 + 20;
-  Xtrokut2.2 + 20;
-  Xtrokut2.3 + 20;
-  Xtrokut3.1 + 20;
-  Xtrokut3.2 + 20;
-  Xtrokut3.3 + 20;
+  Xtrokut11 + 20; 
+  Xtrokut12 + 20;
+  Xtrokut13 + 20;
+  Xtrokut21 + 20;
+  Xtrokut22 + 20;
+  Xtrokut23 + 20;
+  Xtrokut31 + 20;
+  Xtrokut32 + 20;
+  Xtrokut33 + 20;
   delay(200);
 }
-int move_bodyY (){
-  X = X + 20;
+int move_bodyX- (){
+  X = X - 20;
+  Xglava =  Xglava - 20;
+  Xoko = Xoko - 20;
+  Xusta1 = Xusta1 - 20;
+  Xusta2 - 20;
+  Xkapa1 - 20;
+  Xkapa2 - 20;
+  Xnoga1 - 20;
+  Xnoga2 - 20;
+  Xrep - 20;
+  Xtrokut11 - 20; 
+  Xtrokut12 - 20;
+  Xtrokut13 - 20;
+  Xtrokut21 - 20;
+  Xtrokut22 - 20;
+  Xtrokut23 - 20;
+  Xtrokut31 - 20;
+  Xtrokut32 - 20;
+  Xtrokut33 - 20;
+  delay(200);
+}
+int move_bodyY+ (){
   Y = Y + 20;
-  Xglava =  Xglava + 20;
   Yglava =  Yglava + 20;
-  Xoko = Xoko + 20;
   Yoko = Yoko + 20;
-  Xusta1 = Xusta1 + 20;
   Yusta1 + 20;
-  Xusta2 + 20;
   Yusta2 + 20;
-  Xkapa1 + 20;
   Ykapa1 + 20;
-  Xkapa2 + 20;
   Ykapa2 + 20;
-  Xnoga1 + 20;
   Ynoga1 + 20;
-  Xnoga2 + 20;
   Ynoga2 + 20;
-  Xrep + 20;
   Yrep + 20;
-  Xtrokut1.1 + 20;
-  Ytrokut1.1 + 20;
-  Xtrokut1.2 + 20;
-  Ytrokut1.2 + 20;
-  Xtrokut1.3 + 20;
-  Ytrokut1.3 + 20;
-  Xtrokut2.1 + 20;
-  Ytrokut2.1 + 20;
-  Xtrokut2.2 + 20;
-  Ytrokut2.2 + 20;
-  Xtrokut2.3 + 20;
-  Ytrokut2.3 + 20;
-  Xtrokut3.1 + 20;
-  Ytrokut3.1 + 20;
-  Xtrokut3.2 + 20;
-  Ytrokut3.2 + 20;
-  Xtrokut3.3 + 20;
-  Ytrokut3.3 
+  Ytrokut11 + 20;
+  Ytrokut12 + 20;
+  Ytrokut13 + 20;
+  Ytrokut21 + 20;
+  Ytrokut22 + 20;
+  Ytrokut23 + 20;
+  Ytrokut31 + 20;
+  Ytrokut32 + 20;
+  Ytrokut33 + 20;
   delay(200);
 }
 void setup() {
@@ -157,17 +160,14 @@ void setup() {
 }
 
 void loop() {
-
-  // Caracter
- 
-   // Kretanje
-  StanjeTipkala = analogRead(TipkaLR);
-  Serial.println (StanjeTipkala);
-  Serial.println  (StanjeTipkalaUD);
-  if (StanjeTipkala >= 1300 and StanjeTipkala <= 2100){
-    move_body();
-    }
-    StanjeTipkalaUD = analogRead(TipkaUD);
+// Kretanje
+StanjeTipkala = analogRead(TipkaLR);
+Serial.println (StanjeTipkala);
+Serial.println  (StanjeTipkalaUD);
+if (StanjeTipkala >= 1300 and StanjeTipkala <= 2100){
+  
+}
+StanjeTipkalaUD = analogRead(TipkaUD);
 if (StanjeTipkala == 4095){
   X = X - 20;
   delay(200);
