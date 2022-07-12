@@ -139,43 +139,42 @@ int move_bodyYM (){
   Ytrokut32 - 20;
   Ytrokut33 - 20;
 }
+int dino(){
+  //character dinosaur
+  tft.setTextSize(5);
+  tft.setRotation(3);
+  
+  //tijelo i glava
+  tft.fillRect(X, Y, 20, 20, ILI9341_GREEN); 
+  tft.fillRect(Xglava, Yglava, 12, 12, ILI9341_GREEN);
+  
+  //oko i usta
+  tft.fillRect(Xoko, Yoko, 2, 2, ILI9341_BLACK);
+  tft.drawLine(Xusta1, Yusta1, 45, 111, ILI9341_BLACK);
+  tft.fillRect(Xusta2, Yusta2, 1.5, 1, ILI9341_BLACK);
+  
+  //kapa
+  tft.drawLine(Xkapa1, Ykapa1, 44, 101, ILI9341_RED);
+  tft.fillRect(Xkapa2, Ykapa2, 10, 7.5, ILI9341_RED);
 
+  //noge
+  tft.fillRect(Xnoga1, Ynoga1, 5, 5, ILI9341_GREEN);
+  tft.fillRect(Xnoga2, Ynoga2, 5, 5, ILI9341_GREEN);
+
+  //rep
+  tft.fillRect(Xrep, Yrep, 11, 4.5, ILI9341_GREEN);
+  
+  //bodlje na leđima
+  tft.drawTriangle(Xtrokut11, Ytrokut11, Xtrokut12, Ytrokut12, Xtrokut13, Ytrokut13, ILI9341_WHITE);
+  tft.drawTriangle(Xtrokut21, Ytrokut21, Xtrokut22, Ytrokut22, Xtrokut23, Ytrokut23, ILI9341_WHITE);
+  tft.drawTriangle(Xtrokut31, Ytrokut31, Xtrokut32, Ytrokut32, Xtrokut33, Ytrokut33, ILI9341_WHITE);
+  } 
 void setup() {
   pinMode(TipkaLR, INPUT_PULLUP);
   pinMode(TipkaUD, INPUT_PULLUP);
   Serial.begin (9600);
   tft.begin();
   tft.fillScreen(ILI9341_BLACK);
-  int dino(){
-    //character dinosaur
-    tft.setTextSize(5);
-    tft.setRotation(3);
-    
-    //tijelo i glava
-    tft.fillRect(X, Y, 20, 20, ILI9341_GREEN); 
-    tft.fillRect(Xglava, Yglava, 12, 12, ILI9341_GREEN);
-    
-    //oko i usta
-    tft.fillRect(Xoko, Yoko, 2, 2, ILI9341_BLACK);
-    tft.drawLine(Xusta1, Yusta1, 45, 111, ILI9341_BLACK);
-    tft.fillRect(Xusta2, Yusta2, 1.5, 1, ILI9341_BLACK);
-    
-    //kapa
-    tft.drawLine(Xkapa1, Ykapa1, 44, 101, ILI9341_RED);
-    tft.fillRect(Xkapa2, Ykapa2, 10, 7.5, ILI9341_RED);
-  
-    //noge
-    tft.fillRect(Xnoga1, Ynoga1, 5, 5, ILI9341_GREEN);
-    tft.fillRect(Xnoga2, Ynoga2, 5, 5, ILI9341_GREEN);
-  
-    //rep
-    tft.fillRect(Xrep, Yrep, 11, 4.5, ILI9341_GREEN);
-    
-    //bodlje na leđima
-    tft.drawTriangle(Xtrokut11, Ytrokut11, Xtrokut12, Ytrokut12, Xtrokut13, Ytrokut13, ILI9341_WHITE);
-    tft.drawTriangle(Xtrokut21, Ytrokut21, Xtrokut22, Ytrokut22, Xtrokut23, Ytrokut23, ILI9341_WHITE);
-    tft.drawTriangle(Xtrokut31, Ytrokut31, Xtrokut32, Ytrokut32, Xtrokut33, Ytrokut33, ILI9341_WHITE);
-  } 
   dino();
 }
 
