@@ -257,7 +257,7 @@ void loop() {
     move_bodyYM();
   }
  // granica levo desno
- if (Xglava >= 320){
+ if (Xglava >= 300){
   move_bodyXM();
  }
  if (Xrep <= 3 ){
@@ -291,3 +291,4 @@ void loop() {
     }
 
 }
+  
