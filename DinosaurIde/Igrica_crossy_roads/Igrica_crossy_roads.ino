@@ -246,6 +246,33 @@ int carYM(int z){
   Yssvjetla1 -= 20 +z;
   Yssvjetla2 -= 20 +z;
 }
+int carYP(int z){
+  Yauto += 20 +z;
+  Ysvjetla1 += 20 +z;
+  Ysvjetla2 += 20 +z;
+  Yretrovizor += 20 +z;
+  Ystaklo += 20 +z; 
+  Yssvjetla1 += 20 +z;
+  Yssvjetla2 += 20 +z;
+}
+int carXM(int z){
+  Xauto -= 20 +z;
+  Xsvjetla1 -= 20 +z;
+  Xsvjetla2 -= 20 +z;
+  Xretrovizor -= 20 +z;
+  Xstaklo -= 20 +z; 
+  Xssvjetla1 -= 20 +z;
+  Xssvjetla2 -= 20 +z;
+}
+int carXP(int z){
+  Xauto += 20 +z;
+  Xsvjetla1 += 20 +z;
+  Xsvjetla2 += 20 +z;
+  Xretrovizor += 20 +z;
+  Xstaklo += 20 +z; 
+  Xssvjetla1 += 20 +z;
+  Xssvjetla2 += 20 +z;
+}
 
 void setup() {
   // Loading screen
@@ -334,7 +361,7 @@ void loop() {
     // Auto ide vrum vrum 
     carYM(-15);
     if (Yssvjetla1 <= 0){
-      car();
+      
     }
   }
 }
