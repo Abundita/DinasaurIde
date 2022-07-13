@@ -320,6 +320,58 @@ int carXPReset(){
   Xssvjetla2 = 221;
   Yssvjetla2 = 101;
 }
+int car2XP(int y){
+  Xauto2 += 20 +y;
+  Xsvjetla21 += 20 +y;
+  Xsvjetla22 += 20 +y;
+  Xretrovizor2 += 20 +y;
+  Xstaklo2 += 20 +y; 
+  Xssvjetla21 += 20 +y;
+  Xssvjetla22 += 20 +y;
+}
+int car2XM(int y){
+  Xauto2 -= 20 +y;
+  Xsvjetla21 -= 20 +y;
+  Xsvjetla22 -= 20 +y;
+  Xretrovizor2 -= 20 +y;
+  Xstaklo2 -= 20 +y; 
+  Xssvjetla21 -= 20 +y;
+  Xssvjetla22 -= 20 +y;
+}
+int car2YP(int y){
+  Yauto2 += 20 +y;
+  Ysvjetla21 += 20 +y;
+  Ysvjetla22 += 20 +y;
+  Yretrovizor2 += 20 +y;
+  Ystaklo2 += 20 +y; 
+  Yssvjetla21 += 20 +y;
+  Yssvjetla22 += 20 +y;
+}
+int car2YM(int y){
+  Yauto2 -= 20 +y;
+  Ysvjetla21 -= 20 +y;
+  Ysvjetla22 -= 20 +y;
+  Yretrovizor2 -= 20 +y;
+  Ystaklo2 -= 20 +y; 
+  Yssvjetla21 -= 20 +y;
+  Yssvjetla22 -= 20 +y;
+}
+int car2XPReset(){
+  Xauto2 = 260;
+  Yauto2 = 10;
+  Xsvjetla21 = 263;
+  Ysvjetla21 = 43;
+  Xsvjetla22 = 282;
+  Ysvjetla22 = 43;
+  Xretrovizor2 = 257;
+  Yretrovizor2 = 39;
+  Xstaklo2 = 264;
+  Ystaklo2 = 30;
+  Xssvjetla21 =  265;
+  Yssvjetla21 = 14;
+  Xssvjetla22 = 282;
+  Yssvjetla22 = 14;
+}
 void setup() {
 // Loading screen  
 pinMode(PinTipkalo, INPUT_PULLUP);
@@ -369,7 +421,6 @@ pinMode(TipkaUD, INPUT_PULLUP);
 Serial.begin (9600);
 tft.begin(); 
 }
-
 void loop() {
   StanjeTipkala2 = digitalRead(PinTipkalo);
   if (StanjeTipkala2 == LOW and onetime == true) {
@@ -385,7 +436,6 @@ void loop() {
   }
   if (start == true){
     delay (100);
-    car2();
     // Granice ekrana
     //Serial.print (Yglava);
     if (Yglava <= 2){
@@ -406,6 +456,7 @@ void loop() {
     // Refreshanje ekrana
     tft.fillScreen(ILI9341_BLACK);
     car();
+    car2();
     dino();
     // Citanje kontrola
     StanjeTipkala = analogRead(TipkaLR);
@@ -419,6 +470,12 @@ void loop() {
     if (StanjeTipkala == 4095){
       carXP(0);
       }
+    if (StanjeTipkala >= 1300 and StanjeTipkala <= 2100){
+      car2XM(0);
+    }
+    if (StanjeTipkala == 4095){
+      car2XP(0);
+      }
     // Gore dole kretanje 
     if (StanjeTipkalaUD >= 1300 and StanjeTipkalaUD <= 2100){
         move_bodyYP ();
@@ -426,11 +483,18 @@ void loop() {
     if (StanjeTipkalaUD == 4095){
         move_bodyYM ();
       }
+    
     // Auto ide vrum vrum 
     carYM(-15);
+    car2YP(19);
     if (Yssvjetla1 <= -1){
       carXPReset(); 
-      carYP(260);      
+      carYP(210);      
     }
+    
+    if (Yssvjetla21 >= 250){
+      car2XPReset(); 
+      car2YP(-40);    
   }
+ }
 }
