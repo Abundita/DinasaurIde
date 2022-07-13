@@ -9,7 +9,7 @@ int TipkaLR = 34;
 int TipkaUD = 35;
 int StanjeTipkala;
 int StanjeTipkalaUD;
-//auto 
+// Auto 
 int Xauto = 200;
 int Yauto = 65;
 int Xsvjetla1 = 203;
@@ -26,7 +26,7 @@ int Xssvjetla2 = 221;
 int Yssvjetla2 = 101;
 int xrandom = random(160, 310);   
   
-// Tijelo i glava
+// Tijelo i glava dinasaura
 int X = 20;
 int Y = 110;
 int Xglava = 33;
@@ -93,7 +93,32 @@ int move_bodyXP (){
   Xtrokut31 += 20;
   Xtrokut32 += 20;
   Xtrokut33 += 20;
-  delay(200);
+  delay(20);
+}
+
+int move_bodyXP2 (){
+  X = X + 10;
+  Xglava =  Xglava + 10;
+  Xoko = Xoko + 10;
+  Xusta1 = Xusta1 + 10;
+  Xusta2 += 10;
+  Xusta3 += 10;
+  Xkapa1 += 10;
+  Xkapa2 += 10;
+  Xkapa3 += 10;
+  Xnoga1 += 10;
+  Xnoga2 += 10;
+  Xrep += 10;
+  Xtrokut11 += 10; 
+  Xtrokut12 += 10;
+  Xtrokut13 += 10;
+  Xtrokut21 += 10;
+  Xtrokut22 += 10;
+  Xtrokut23 += 10;
+  Xtrokut31 += 10;
+  Xtrokut32 += 10;
+  Xtrokut33 += 10;
+  delay(20);
 }
 int move_bodyXM (){
   X = X - 20;
@@ -117,8 +142,9 @@ int move_bodyXM (){
   Xtrokut31 -= 20;
   Xtrokut32 -= 20;
   Xtrokut33 -= 20;
-  delay(200);
+  delay(20);
 }
+
 int move_bodyYP (){
   Y = Y + 20;
   Yglava =  Yglava + 20;
@@ -141,7 +167,7 @@ int move_bodyYP (){
   Ytrokut31 += 20;
   Ytrokut32 += 20;
   Ytrokut33 += 20;
-  delay (200);
+  delay (20);
 }
 int move_bodyYM (){
   Y = Y - 20; 
@@ -165,7 +191,7 @@ int move_bodyYM (){
   Ytrokut31 -= 20;
   Ytrokut32 -= 20;
   Ytrokut33 -= 20;
-  delay (200);
+  delay (20);
 }
 int dino(){
   //character dinosaur
@@ -231,29 +257,42 @@ void setup() {
 }
 
 void loop() {
-  // Kretanje
-  delay(100);
-  Serial.print (Yglava);
+  delay (100);
+  // Granice ekrana
+  //Serial.print (Yglava);
   if (Yglava <= 2){
     move_bodyYP();
   }
   if (Yglava >= 220){
     move_bodyYM();
   }
+ // granica levo desno
+ if (Xglava >= 300){
+  move_bodyXM();
+ }
+ if (Xrep <= 3 ){
+  move_bodyXP();
+ }
+  Serial.println ("Rep");
+  Serial.println (Xrep);
+  // Refreshanje ekrana
   tft.fillScreen(ILI9341_BLACK);
   car();
   tft.fillScreen(ILI9341_BLACK);
   dino();
+  // Citanje kontrola
   StanjeTipkala = analogRead(TipkaLR);
   StanjeTipkalaUD = analogRead(TipkaUD);
-  Serial.println (StanjeTipkala);
-  Serial.println  (StanjeTipkalaUD);
+  //Serial.println (StanjeTipkala);
+  //Serial.println  (StanjeTipkalaUD);
+  // Ljevo desno kretanje
   if (StanjeTipkala >= 1300 and StanjeTipkala <= 2100){
     move_bodyXP();
   }
   if (StanjeTipkala == 4095){
     move_bodyXM ();
     }
+  // Gore dole kretanje 
   if (StanjeTipkalaUD >= 1300 and StanjeTipkalaUD <= 2100){
       move_bodyYP ();
       }
@@ -266,6 +305,6 @@ void loop() {
   
   carYM(-15);
   if (Yssvjetla1 <= 0){
-    car()
+    car();
   }
 }
