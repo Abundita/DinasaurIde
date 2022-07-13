@@ -247,7 +247,7 @@ void setup() {
 }
 
 void loop() {
-  delay (100);
+  delay (50);
   // Granice ekrana
   //Serial.print (Yglava);
   if (Yglava <= 2){
@@ -268,7 +268,6 @@ void loop() {
   // Refreshanje ekrana
   tft.fillScreen(ILI9341_BLACK);
   car();
-  tft.fillScreen(ILI9341_BLACK);
   dino();
   // Citanje kontrola
   StanjeTipkala = analogRead(TipkaLR);
