@@ -9,7 +9,7 @@ int TipkaLR = 34;
 int TipkaUD = 35;
 int StanjeTipkala;
 int StanjeTipkalaUD;
-//auto 
+// Auto 
 int Xauto = 200;
 int Yauto = 65;
 int Xsvjetla1 = 203;
@@ -26,7 +26,7 @@ int Xssvjetla2 = 221;
 int Yssvjetla2 = 101;
    
   
-// Tijelo i glava
+// Tijelo i glava dinasaura
 int X = 20;
 int Y = 110;
 int Xglava = 33;
@@ -223,6 +223,7 @@ void setup() {
 void loop() {
   // Kretanje
   delay(100);
+  // Granice ekrana
   Serial.print (Yglava);
   if (Yglava <= 2){
     move_bodyYP();
@@ -230,24 +231,30 @@ void loop() {
   if (Yglava >= 220){
     move_bodyYM();
   }
+  Serial.println (Xrep);
+  // Refreshanje ekrana
   tft.fillScreen(ILI9341_BLACK);
   car();
   tft.fillScreen(ILI9341_BLACK);
   dino();
+  // Citanje kontrola
   StanjeTipkala = analogRead(TipkaLR);
   StanjeTipkalaUD = analogRead(TipkaUD);
   Serial.println (StanjeTipkala);
   Serial.println  (StanjeTipkalaUD);
+  // Ljevo desno kretanje
   if (StanjeTipkala >= 1300 and StanjeTipkala <= 2100){
     move_bodyXP();
   }
   if (StanjeTipkala == 4095){
     move_bodyXM ();
     }
+  // Gore dole kretanje 
   if (StanjeTipkalaUD >= 1300 and StanjeTipkalaUD <= 2100){
       move_bodyYP ();
       }
   if (StanjeTipkalaUD == 4095){
       move_bodyYM ();
     }
+
 }
