@@ -226,7 +226,9 @@ void loop() {
   Serial.print (Yglava);
   if (Yglava <= 2){
     move_bodyYP();
-
+  }
+  if (Yglava >= 220){
+    move_bodyYM();
   }
   tft.fillScreen(ILI9341_BLACK);
   car();
