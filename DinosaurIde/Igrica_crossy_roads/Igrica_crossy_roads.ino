@@ -383,6 +383,7 @@ void loop() {
   }
   if (start == true){
     delay (100);
+    car2();
     // Granice ekrana
     //Serial.print (Yglava);
     if (Yglava <= 2){
