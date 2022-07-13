@@ -24,7 +24,7 @@ int Xssvjetla1 = 204;
 int Yssvjetla1 = 101;
 int Xssvjetla2 = 221;
 int Yssvjetla2 = 101;
-   
+int xrandom = random(160, 310);   
   
 // Tijelo i glava
 int X = 20;
@@ -211,6 +211,16 @@ int car(){
   tft.fillRect(Xssvjetla1, Yssvjetla1, 5, 3, ILI9341_RED);
   tft.fillRect(Xssvjetla2, Yssvjetla2, 5, 3, ILI9341_RED);
 }
+int carYM(int z){
+  Yauto -= 20 +z;
+  Ysvjetla1 -= 20 +z;
+  Ysvjetla2 -= 20 +z;
+  Yretrovizor -= 20 +z;
+  Ystaklo -= 20 +z; 
+  Yssvjetla1 -= 20 +z;
+  Yssvjetla2 -= 20 +z;
+}
+
 void setup() {
   pinMode(TipkaLR, INPUT_PULLUP);
   pinMode(TipkaUD, INPUT_PULLUP);
@@ -250,4 +260,12 @@ void loop() {
   if (StanjeTipkalaUD == 4095){
       move_bodyYM ();
     }
+
+
+    // Auto ide vrum vrum
+  
+  carYM(-15);
+  if (Yssvjetla1 <= 0){
+    car()
+  }
 }
