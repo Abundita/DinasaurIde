@@ -3,7 +3,11 @@
 #define TFT_CS  5
 #define TFT_DC 21
 Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC);
-//nešto
+// loading screen
+int PinTipkalo = 39;
+int StanjeTipkala2;
+bool start = false;
+bool onetime = true;
 // tipke i srce
 int TipkaLR = 34;
 int TipkaUD = 35;
@@ -25,7 +29,6 @@ int Yssvjetla1 = 101;
 int Xssvjetla2 = 221;
 int Yssvjetla2 = 101;
 int xrandom = random(160, 310);   
-  
 // Tijelo i glava dinasaura
 int X = 20;
 int Y = 110;
@@ -70,7 +73,6 @@ int Ytrokut32 = 109;
 int Xtrokut33 = 19;
 int Ytrokut33 = 112;
 // mrdanje
-
 int move_bodyXP (){
   X = X + 20;
   Xglava =  Xglava + 20;
@@ -95,7 +97,6 @@ int move_bodyXP (){
   Xtrokut33 += 20;
   delay(20);
 }
-
 int move_bodyXP2 (){
   X = X + 10;
   Xglava =  Xglava + 10;
@@ -121,10 +122,10 @@ int move_bodyXP2 (){
   delay(20);
 }
 int move_bodyXM (){
-  X = X - 20;
-  Xglava =  Xglava - 20;
-  Xoko = Xoko - 20;
-  Xusta1 = Xusta1 - 20;
+  X -= 20;
+  Xglava -=20;
+  Xoko -= 20;
+  Xusta1 -= 20;
   Xusta2 -= 20;
   Xusta3 -= 20;
   Xkapa1 -= 20;
@@ -144,7 +145,6 @@ int move_bodyXM (){
   Xtrokut33 -= 20;
   delay(20);
 }
-
 int move_bodyYP (){
   Y = Y + 20;
   Yglava =  Yglava + 20;
@@ -171,8 +171,8 @@ int move_bodyYP (){
 }
 int move_bodyYM (){
   Y = Y - 20; 
-  Yglava =  Yglava - 20;
-  Yoko = Yoko - 20;
+  Yglava -= 20;
+  Yoko -= 20;
   Yusta1 -= 20;
   Yusta2 -= 20;
   Yusta3 -= 20;
@@ -248,62 +248,93 @@ int carYM(int z){
 }
 
 void setup() {
+  // Loading screen
+  pinMode(PinTipkalo, INPUT_PULLUP);
+  tft.begin();
+  tft.setRotation(3);
+  tft.drawRoundRect(30, 175, 245, 37, 6, ILI9341_WHITE);
+  tft.setTextSize(4);
+  tft.setCursor(35, 180);
+  tft.setTextColor(ILI9341_GREEN);
+  tft.println("START GAME");
+  tft.fillRect(210, 80, 50, 30, ILI9341_BLUE);
+  tft.fillTriangle(250, 65, 250, 125, 290, 80, ILI9341_BLUE);
+  tft.setRotation(3);
+  tft.setTextSize(2);
+  tft.setTextColor(ILI9341_YELLOW);
+  tft.setCursor(160, 140);
+  tft.println("PRESS START");
+  tft.setTextSize(4.7);
+  tft.setRotation(3);
+  tft.setCursor(12, 20);
+  tft.println("DINOSAURIDE");
+  // Gumbovi
   pinMode(TipkaLR, INPUT_PULLUP);
   pinMode(TipkaUD, INPUT_PULLUP);
   Serial.begin (9600);
-  tft.begin();
-  tft.fillScreen(ILI9341_BLACK);
-  dino();  
+  tft.begin(); 
 }
 
 void loop() {
-  delay (100);
-  // Granice ekrana
-  //Serial.print (Yglava);
-  if (Yglava <= 2){
-    move_bodyYP();
+
+  StanjeTipkala2 = digitalRead(PinTipkalo);
+  if (StanjeTipkala2 == LOW and onetime == true) {
+      tft.fillScreen(ILI9341_BLACK);
+      tft.setTextSize(5);
+      tft.setTextColor(ILI9341_WHITE);
+      tft.setCursor(20, 110);
+      tft.setRotation(3);
+      tft.println("LOADING...");
+      delay(2000);
+      start = true;
+      onetime = false;
   }
-  if (Yglava >= 220){
-    move_bodyYM();
-  }
- // granica levo desno
- if (Xglava >= 300){
-  move_bodyXM();
- }
- if (Xrep <= 3 ){
-  move_bodyXP();
- }
-  Serial.println ("Rep");
-  Serial.println (Xrep);
-  // Refreshanje ekrana
-  tft.fillScreen(ILI9341_BLACK);
-  car();
-  dino();
-  // Citanje kontrola
-  StanjeTipkala = analogRead(TipkaLR);
-  StanjeTipkalaUD = analogRead(TipkaUD);
-  //Serial.println (StanjeTipkala);
-  //Serial.println  (StanjeTipkalaUD);
-  // Ljevo desno kretanje
-  if (StanjeTipkala >= 1300 and StanjeTipkala <= 2100){
-    move_bodyXP();
-  }
-  if (StanjeTipkala == 4095){
-    move_bodyXM ();
+  if (start == true){
+    delay (100);
+    // Granice ekrana
+    //Serial.print (Yglava);
+    if (Yglava <= 2){
+      move_bodyYP();
     }
-  // Gore dole kretanje 
-  if (StanjeTipkalaUD >= 1300 and StanjeTipkalaUD <= 2100){
-      move_bodyYP ();
+    if (Yglava >= 220){
+      move_bodyYM();
+    }
+    // granica levo desno
+    if (Xglava >= 300){
+      move_bodyXM();
+    }
+    if (Xrep <= 3 ){
+      move_bodyXP();
+    }
+    Serial.println ("Rep");
+    Serial.println (Xrep);
+    // Refreshanje ekrana
+    tft.fillScreen(ILI9341_BLACK);
+    car();
+    dino();
+    // Citanje kontrola
+    StanjeTipkala = analogRead(TipkaLR);
+    StanjeTipkalaUD = analogRead(TipkaUD);
+    //Serial.println (StanjeTipkala);
+    //Serial.println  (StanjeTipkalaUD);
+    // Ljevo desno kretanje
+    if (StanjeTipkala >= 1300 and StanjeTipkala <= 2100){
+      move_bodyXP();
+    }
+    if (StanjeTipkala == 4095){
+      move_bodyXM ();
       }
-  if (StanjeTipkalaUD == 4095){
-      move_bodyYM ();
+    // Gore dole kretanje 
+    if (StanjeTipkalaUD >= 1300 and StanjeTipkalaUD <= 2100){
+        move_bodyYP ();
+        }
+    if (StanjeTipkalaUD == 4095){
+        move_bodyYM ();
+      }
+    // Auto ide vrum vrum 
+    carYM(-15);
+    if (Yssvjetla1 <= 0){
+      car();
     }
-
-
-    // Auto ide vrum vrum
-  
-  carYM(-15);
-  if (Yssvjetla1 <= 0){
-    car()
   }
 }
