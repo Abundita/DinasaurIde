@@ -304,26 +304,25 @@ int carXP(int z){
   Xssvjetla2 += 20 +z;
 }
 int carXPReset(){
-  int Xauto = 200;
-  int Yauto = 65;
-  int Xsvjetla1 = 203;
-  int Ysvjetla1 = 70;
-  int Xsvjetla2 = 222;
-  int Ysvjetla2 = 70;
-  int Xretrovizor = 197;
-  int Yretrovizor = 74;
-  int Xstaklo = 204;
-  int Ystaklo = 78;
-  int Xssvjetla1 = 204;
-  int Xssvjetla2 = 221;
-  int Yssvjetla2 = 101;
+  Xauto = 200;
+  Yauto = 65;
+  Xsvjetla1 = 203;
+  Ysvjetla1 = 70;
+  Xsvjetla2 = 222;
+  Ysvjetla2 = 70;
+  Xretrovizor = 197;
+  Yretrovizor = 74;
+  Xstaklo = 204;
+  Ystaklo = 78;
+  Xssvjetla1 = 204;
+  Xssvjetla2 = 221;
+  Yssvjetla2 = 101;
 }
 void setup() {
-  // Loading screen
+// Loading screen  
+pinMode(PinTipkalo, INPUT_PULLUP);
   
-  pinMode(PinTipkalo, INPUT_PULLUP);
-  
-  tft.begin();
+tft.begin();
 tft.setRotation(3);
 tft.fillScreen(ILI9341_BLACK);
 tft.drawRoundRect(30, 175, 270, 45, 6, ILI9341_WHITE);   
@@ -362,15 +361,14 @@ tft.setRotation(3);
 tft.setCursor(20, 20);
 tft.println("DINOSAURIDE");
 
-  // Gumbovi
-  pinMode(TipkaLR, INPUT_PULLUP);
-  pinMode(TipkaUD, INPUT_PULLUP);
-  Serial.begin (9600);
-  tft.begin(); 
+// Gumbovi
+pinMode(TipkaLR, INPUT_PULLUP);
+pinMode(TipkaUD, INPUT_PULLUP);
+Serial.begin (9600);
+tft.begin(); 
 }
 
 void loop() {
-
   StanjeTipkala2 = digitalRead(PinTipkalo);
   if (StanjeTipkala2 == LOW and onetime == true) {
       tft.fillScreen(ILI9341_BLACK);
@@ -429,8 +427,7 @@ void loop() {
     carYM(-15);
     if (Yssvjetla1 <= -1){
       carXPReset(); 
-      carYP(260);
-      
+      carYP(260);      
     }
   }
 }
