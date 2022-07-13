@@ -45,6 +45,7 @@ int Yssvjetla21 = 14;
 int Xssvjetla22 = 282;
 int Yssvjetla22 = 14;
 // Tijelo i glava dinasaura
+bool dead = false;
 int X = 20;
 int Y = 110;
 int Xglava = 33;
@@ -372,6 +373,11 @@ int car2XPReset(){
   Xssvjetla22 = 282;
   Yssvjetla22 = 14;
 }
+bool inRange(int val, int minimum, int maximum)
+{
+  return ((minimum <= val) && (val <= maximum));
+}
+
 void setup() {
 // Loading screen  
 pinMode(PinTipkalo, INPUT_PULLUP);
@@ -433,8 +439,9 @@ void loop() {
       delay(2000);
       start = true;
       onetime = false;
+      dead = false;
   }
-  if (start == true){
+  if (start == true && dead == false){
     delay (100);
     // Granice ekrana
     //Serial.print (Yglava);
@@ -464,6 +471,15 @@ void loop() {
     //Serial.println (StanjeTipkala);
     //Serial.println  (StanjeTipkalaUD);
     // Ljevo desno kretanje
+    if (inRange(Xglava, Xauto - 10, Xauto + 10) && inRange(Yglava, Yauto - 10, Yauto + 10) || inRange(Xglava, Xretrovizor - 10, Xretrovizor + 10) && inRange(Yglava, Yretrovizor - 10, Yretrovizor + 10) ||  inRange(Xkapa2, Xauto - 10, Xauto + 10) && inRange(Ykapa2, Yauto - 10, Yauto + 10) || inRange(Xnoga1, Xauto - 10, Xauto + 10) && inRange(Ynoga1, Yauto - 10, Yauto + 10) || inRange(Xnoga2, Xauto - 10, Xauto + 10) && inRange(Ynoga2, Yauto - 10, Yauto + 10) || inRange(Xrep, Xauto - 10, Xauto + 10) && inRange(Yrep, Yauto - 10, Yauto + 10 ) ||  inRange(Xglava, Xssvjetla1 - 10, Xssvjetla1 + 10) && inRange(Yglava, Yssvjetla1 - 10, Yssvjetla1 + 10) ||  inRange(Xglava, Xssvjetla2 - 10, Xssvjetla2 + 10) && inRange(Yglava, Yssvjetla2 - 10, Yssvjetla2+ 10) ||  inRange(Xkapa2, Xssvjetla1 - 10, Xssvjetla1 + 10) && inRange(Ykapa2, Yssvjetla1 - 10, Yssvjetla1+ 10) ||  inRange(Xrep, Xssvjetla1 - 10, Xssvjetla1 + 10) && inRange(Xrep, Yssvjetla1 - 10, Yssvjetla1+ 10) ||  inRange(Xrep, Xssvjetla2 - 10, Xssvjetla2 + 10) && inRange(Yrep, Yssvjetla2 - 10, Yssvjetla2+ 10) )
+    {
+      Serial.print("hit");
+      dead = true;
+    }
+    if (inRange(Xglava,Xauto2-10,Xauto2+10) && inRange (Yglava,Yauto2-10,Yauto2+10)){
+      Serial.print("hit");
+      dead = true;
+    }
     if (StanjeTipkala >= 1300 and StanjeTipkala <= 2100){
       carXM(0);
     }
