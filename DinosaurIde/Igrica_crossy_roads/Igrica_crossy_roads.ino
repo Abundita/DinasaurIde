@@ -222,6 +222,12 @@ void setup() {
 
 void loop() {
   // Kretanje
+  Serial.print (Yglava);
+  if (Yglava <= 2){
+    move_bodyYP();
+
+  }
+  tft.fillScreen(ILI9341_BLACK);
   car();
   tft.fillScreen(ILI9341_BLACK);
   dino();
