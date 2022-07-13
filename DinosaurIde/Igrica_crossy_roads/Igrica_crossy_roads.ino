@@ -29,6 +29,21 @@ int Yssvjetla1 = 101;
 int Xssvjetla2 = 221;
 int Yssvjetla2 = 101;
 int xrandom = random(160, 310);   
+//auto na drugu stranu
+int Xauto2 = 260;
+int Yauto2 = 10;
+int Xsvjetla21 = 263;
+int Ysvjetla21 = 43;
+int Xsvjetla22 = 282;
+int Ysvjetla22 = 43;
+int Xretrovizor2 = 257;
+int Yretrovizor2 = 39;
+int Xstaklo2 = 264;
+int Ystaklo2 = 30;
+int Xssvjetla21 =  265;
+int Yssvjetla21 = 14;
+int Xssvjetla22 = 282;
+int Yssvjetla22 = 14;
 // Tijelo i glava dinasaura
 int X = 20;
 int Y = 110;
@@ -237,6 +252,21 @@ int car(){
   tft.fillRect(Xssvjetla1, Yssvjetla1, 5, 3, ILI9341_RED);
   tft.fillRect(Xssvjetla2, Yssvjetla2, 5, 3, ILI9341_RED);
 }
+int car2(){
+//auto 2
+tft.fillRoundRect(Xauto2, Yauto2, 31, 42, 5, ILI9341_RED);
+//svjetla
+tft.fillRect(Xsvjetla21, Ysvjetla21, 6, 4, ILI9341_YELLOW);
+tft.fillRect(Xsvjetla22, Ysvjetla22, 6, 4, ILI9341_YELLOW);
+//retrovizori
+tft.fillRect(Xretrovizor2, Yretrovizor2, 37, 5, ILI9341_RED);
+//staklo
+tft.drawRect(Xstaklo2, Ystaklo2, 23, 8, ILI9341_BLACK);
+//straznja svjetla
+tft.drawRect(Xssvjetla21, Yssvjetla21, 5, 3, ILI9341_BLACK);
+tft.drawRect(Xssvjetla22, Yssvjetla22, 5, 3, ILI9341_BLACK);
+
+}
 int carYM(int z){
   Yauto -= 20 +z;
   Ysvjetla1 -= 20 +z;
@@ -290,7 +320,9 @@ int carXPReset(){
 }
 void setup() {
   // Loading screen
+  
   pinMode(PinTipkalo, INPUT_PULLUP);
+  
   tft.begin();
   tft.fillScreen(ILI9341_BLACK);
   tft.setRotation(3);
