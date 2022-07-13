@@ -304,20 +304,19 @@ int carXP(int z){
   Xssvjetla2 += 20 +z;
 }
 int carXPReset(){
-Xauto = 200;
-Yauto = 65;
-Xsvjetla1 = 203;
-Ysvjetla1 = 70;
-Xsvjetla2 = 222;
-Ysvjetla2 = 70;
-Xretrovizor = 197;
-Yretrovizor = 74;
-Xstaklo = 204;
-Ystaklo = 78;
-Xssvjetla1 = 204;
-Yssvjetla1 = 101;
-Xssvjetla2 = 221;
-Yssvjetla2 = 101;
+  int Xauto = 200;
+  int Yauto = 65;
+  int Xsvjetla1 = 203;
+  int Ysvjetla1 = 70;
+  int Xsvjetla2 = 222;
+  int Ysvjetla2 = 70;
+  int Xretrovizor = 197;
+  int Yretrovizor = 74;
+  int Xstaklo = 204;
+  int Ystaklo = 78;
+  int Xssvjetla1 = 204;
+  int Xssvjetla2 = 221;
+  int Yssvjetla2 = 101;
 }
 void setup() {
   // Loading screen
@@ -325,24 +324,44 @@ void setup() {
   pinMode(PinTipkalo, INPUT_PULLUP);
   
   tft.begin();
-  tft.fillScreen(ILI9341_BLACK);
-  tft.setRotation(3);
-  tft.drawRoundRect(30, 175, 245, 37, 6, ILI9341_WHITE);
-  tft.setTextSize(4);
-  tft.setCursor(35, 180);
-  tft.setTextColor(ILI9341_GREEN);
-  tft.println("START GAME");
-  tft.fillRect(210, 80, 50, 30, ILI9341_BLUE);
-  tft.fillTriangle(250, 65, 250, 125, 290, 80, ILI9341_BLUE);
-  tft.setRotation(3);
-  tft.setTextSize(2);
-  tft.setTextColor(ILI9341_YELLOW);
-  tft.setCursor(160, 140);
-  tft.println("PRESS START");
-  tft.setTextSize(4.7);
-  tft.setRotation(3);
-  tft.setCursor(12, 20);
-  tft.println("DINOSAURIDE");
+tft.setRotation(3);
+tft.fillScreen(ILI9341_BLACK);
+tft.drawRoundRect(30, 175, 270, 45, 6, ILI9341_WHITE);   
+tft.setTextSize(4);
+tft.setCursor(35, 185);
+tft.setTextColor(ILI9341_YELLOW);
+tft.println("PRESS START");
+
+
+//character dinosaur
+tft.setTextSize(5);
+tft.setRotation(3);
+//tijelo i glava
+tft.fillRect(140, 110, 20, 20, ILI9341_GREEN); 
+tft.fillRect(153, 102, 12, 12, ILI9341_GREEN);
+//oko i usta
+tft.fillRect(158, 105, 2, 2, ILI9341_BLACK);
+tft.drawLine(161, 111, 165, 111, ILI9341_BLACK);
+tft.fillRect(160, 110, 1.5, 1, ILI9341_BLACK);
+//kapa
+tft.drawLine(149, 101, 164, 101, ILI9341_RED);
+tft.fillRect(155, 95, 10, 7.5, ILI9341_RED);
+//noge
+tft.fillRect(140, 130, 5, 5, ILI9341_GREEN);
+tft.fillRect(156.5, 130, 5, 5, ILI9341_GREEN);
+//rep
+tft.fillRect(130, 113, 11, 4.5, ILI9341_GREEN);
+//bodlje na leđima
+tft.drawTriangle(146, 109.5, 149, 106.5, 152, 109.5, ILI9341_WHITE);
+tft.drawTriangle(141, 109.5, 144, 106.5, 147, 109.5, ILI9341_WHITE);
+tft.drawTriangle(133, 112, 136, 109, 139, 112, ILI9341_WHITE);
+
+tft.setTextColor(ILI9341_GREEN);
+tft.setTextSize(4.7);
+tft.setRotation(3);
+tft.setCursor(20, 20);
+tft.println("DINOSAURIDE");
+
   // Gumbovi
   pinMode(TipkaLR, INPUT_PULLUP);
   pinMode(TipkaUD, INPUT_PULLUP);
@@ -366,7 +385,6 @@ void loop() {
   }
   if (start == true){
     delay (100);
-    car2();
     // Granice ekrana
     //Serial.print (Yglava);
     if (Yglava <= 2){
