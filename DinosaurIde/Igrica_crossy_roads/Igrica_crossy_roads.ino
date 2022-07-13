@@ -324,13 +324,13 @@ int carXPReset(){
   Yssvjetla2 = 101;
 }
 int car2XP(int y){
-  Xauto2 += 20 +y;
-  Xsvjetla21 += 20 +y;
-  Xsvjetla22 += 20 +y;
-  Xretrovizor2 += 20 +y;
-  Xstaklo2 += 20 +y; 
-  Xssvjetla21 += 20 +y;
-  Xssvjetla22 += 20 +y;
+  Xauto2 += 5 +y;
+  Xsvjetla21 += 5 +y;
+  Xsvjetla22 += 5 +y;
+  Xretrovizor2 += 5 +y;
+  Xstaklo2 += 5 +y; 
+  Xssvjetla21 += 5 +y;
+  Xssvjetla22 += 5 +y;
 }
 int car2XM(int y){
   Xauto2 -= 20 +y;
@@ -524,7 +524,7 @@ void loop() {
     
     if (Yssvjetla21 >= 250){
       car2XPReset(); 
-      car2YP(-40);    
+      car2YP(-20);    
   }
  }
   if (StisnutMENU == LOW){
