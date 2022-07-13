@@ -322,13 +322,13 @@ int carXPReset(){
   Yssvjetla2 = 101;
 }
 int car2XP(int y){
-  Xauto2 += 20 +y;
-  Xsvjetla21 += 20 +y;
-  Xsvjetla22 += 20 +y;
-  Xretrovizor2 += 20 +y;
-  Xstaklo2 += 20 +y; 
-  Xssvjetla21 += 20 +y;
-  Xssvjetla22 += 20 +y;
+  Xauto2 += 5 +y;
+  Xsvjetla21 += 5 +y;
+  Xsvjetla22 += 5 +y;
+  Xretrovizor2 += 5 +y;
+  Xstaklo2 += 5 +y; 
+  Xssvjetla21 += 5 +y;
+  Xssvjetla22 += 5 +y;
 }
 int car2XM(int y){
   Xauto2 -= 20 +y;
@@ -470,7 +470,7 @@ void loop() {
     StanjeTipkalaUD = analogRead(TipkaUD);
     //Serial.println (StanjeTipkala);
     //Serial.println  (StanjeTipkalaUD);
-    // Hit detection 
+    // Hit detection sss
     if (inRange(Xglava, Xauto - 10, Xauto + 10) && inRange(Yglava, Yauto - 10, Yauto + 10) 
     || inRange(Xglava, Xretrovizor - 10, Xretrovizor + 10) && inRange(Yglava, Yretrovizor - 10, Yretrovizor + 10) 
     || inRange(Xkapa2, Xauto - 10, Xauto + 10) && inRange(Ykapa2, Yauto - 10, Yauto + 10) 
@@ -541,7 +541,7 @@ void loop() {
     
     if (Yssvjetla21 >= 250){
       car2XPReset(); 
-      car2YP(-40);    
+      car2YP(-20);    
   }
  }
 }
