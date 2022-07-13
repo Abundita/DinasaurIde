@@ -304,20 +304,20 @@ int carXP(int z){
   Xssvjetla2 += 20 +z;
 }
 int carXPReset(){
-Xauto = 200;
-Yauto = 65;
-Xsvjetla1 = 203;
-Ysvjetla1 = 70;
-Xsvjetla2 = 222;
-Ysvjetla2 = 70;
-Xretrovizor = 197;
-Yretrovizor = 74;
-Xstaklo = 204;
-Ystaklo = 78;
-Xssvjetla1 = 204;
-Yssvjetla1 = 101;
-Xssvjetla2 = 221;
-Yssvjetla2 = 101;
+  Xauto = 200;
+  Yauto = 65;
+  Xsvjetla1 = 203;
+  Ysvjetla1 = 70;
+  Xsvjetla2 = 222;
+  Ysvjetla2 = 70;
+  Xretrovizor = 197;
+  Yretrovizor = 74;
+  Xstaklo = 204;
+  Ystaklo = 78;
+  Xssvjetla1 = 204;
+  Yssvjetla1 = 101;
+  Xssvjetla2 = 221;
+  Yssvjetla2 = 101;
 }
 void setup() {
   // Loading screen
