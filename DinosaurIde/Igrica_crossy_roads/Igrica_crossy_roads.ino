@@ -470,7 +470,7 @@ void loop() {
     StanjeTipkalaUD = analogRead(TipkaUD);
     //Serial.println (StanjeTipkala);
     //Serial.println  (StanjeTipkalaUD);
-    // Hit detection sss
+    // Hit detection 
     if (inRange(Xglava, Xauto - 10, Xauto + 10) && inRange(Yglava, Yauto - 10, Yauto + 10) 
     || inRange(Xglava, Xretrovizor - 10, Xretrovizor + 10) && inRange(Yglava, Yretrovizor - 10, Yretrovizor + 10) 
     || inRange(Xkapa2, Xauto - 10, Xauto + 10) && inRange(Ykapa2, Yauto - 10, Yauto + 10) 
