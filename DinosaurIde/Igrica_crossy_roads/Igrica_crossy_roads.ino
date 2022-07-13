@@ -305,6 +305,7 @@ int carXP(int z){
 }
 int carXPReset(){
   Xauto = 200;
+  Xauto = 200;
   Yauto = 65;
   Xsvjetla1 = 203;
   Ysvjetla1 = 70;
@@ -315,6 +316,7 @@ int carXPReset(){
   Xstaklo = 204;
   Ystaklo = 78;
   Xssvjetla1 = 204;
+  Yssvjetla1 = 101;
   Xssvjetla2 = 221;
   Yssvjetla2 = 101;
 }
