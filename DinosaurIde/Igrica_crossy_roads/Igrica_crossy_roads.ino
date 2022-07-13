@@ -257,7 +257,7 @@ void setup() {
 }
 
 void loop() {
-  delay (50);
+  delay (100);
   // Granice ekrana
   //Serial.print (Yglava);
   if (Yglava <= 2){
@@ -304,6 +304,6 @@ void loop() {
   
   carYM(-15);
   if (Yssvjetla1 <= 0){
-    car();
+    car()
   }
 }
