@@ -222,6 +222,7 @@ void setup() {
 
 void loop() {
   // Kretanje
+  delay(100);
   Serial.print (Yglava);
   if (Yglava <= 2){
     move_bodyYP();
