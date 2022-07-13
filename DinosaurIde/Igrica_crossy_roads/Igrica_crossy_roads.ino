@@ -304,19 +304,20 @@ int carXP(int z){
   Xssvjetla2 += 20 +z;
 }
 int carXPReset(){
-  int Xauto = 200;
-  int Yauto = 65;
-  int Xsvjetla1 = 203;
-  int Ysvjetla1 = 70;
-  int Xsvjetla2 = 222;
-  int Ysvjetla2 = 70;
-  int Xretrovizor = 197;
-  int Yretrovizor = 74;
-  int Xstaklo = 204;
-  int Ystaklo = 78;
-  int Xssvjetla1 = 204;
-  int Xssvjetla2 = 221;
-  int Yssvjetla2 = 101;
+Xauto = 200;
+Yauto = 65;
+Xsvjetla1 = 203;
+Ysvjetla1 = 70;
+Xsvjetla2 = 222;
+Ysvjetla2 = 70;
+Xretrovizor = 197;
+Yretrovizor = 74;
+Xstaklo = 204;
+Ystaklo = 78;
+Xssvjetla1 = 204;
+Yssvjetla1 = 101;
+Xssvjetla2 = 221;
+Yssvjetla2 = 101;
 }
 void setup() {
   // Loading screen
@@ -365,6 +366,7 @@ void loop() {
   }
   if (start == true){
     delay (100);
+    car2();
     // Granice ekrana
     //Serial.print (Yglava);
     if (Yglava <= 2){
