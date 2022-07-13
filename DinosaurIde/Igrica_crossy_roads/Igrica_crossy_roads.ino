@@ -8,6 +8,7 @@ int PinTipkalo = 39;
 int StanjeTipkala2;
 bool start = false;
 bool onetime = true;
+bool eintime = true;
 int TipkaMENU = 13;
 int StisnutMENU;
 // tipke i srce
@@ -391,7 +392,42 @@ int loading () {
   tft.setTextColor(ILI9341_YELLOW);
   tft.println("PRESS START");
 }
+int deathscreen (){
+  tft.begin();
+  tft.fillScreen(ILI9341_BLACK);
+  tft.setTextColor(ILI9341_RED);
+  tft.setTextSize(5.5);
+  tft.setRotation(3);
+  tft.setCursor(25, 110);
+  tft.println("GAME OVER");
+  tft.setTextSize(3.5);
+  tft.setRotation(3);
+  tft.setTextColor(ILI9341_YELLOW);
+  tft.setCursor(20, 200);
+  tft.println("SCORE =");
+  //lubanja
+  tft.fillCircle(160, 40, 30, ILI9341_WHITE);
+  tft.fillRect(149, 45, 25, 42, ILI9341_WHITE);
+  tft.fillRect(155, 68, 3, 15, ILI9341_BLACK);
+  tft.fillRect(165, 68, 3, 15, ILI9341_BLACK);
+  tft.setTextSize(5);
+  //prvi kriz
+  tft.drawLine(141, 36, 158, 52, ILI9341_BLACK);
+  tft.drawLine(141, 37, 158, 53, ILI9341_BLACK);
+  tft.drawLine(141, 35, 158, 51, ILI9341_BLACK);
 
+  tft.drawLine(141, 52, 158, 36, ILI9341_BLACK);
+  tft.drawLine(141, 53, 158, 37, ILI9341_BLACK);
+  tft.drawLine(141, 51, 158, 35, ILI9341_BLACK);
+  //drugi kriz
+  tft.drawLine(162, 36, 179, 52, ILI9341_BLACK);
+  tft.drawLine(162, 37, 179, 53, ILI9341_BLACK);
+  tft.drawLine(162, 35, 179, 51, ILI9341_BLACK);
+
+  tft.drawLine(162, 52, 179, 36, ILI9341_BLACK);
+  tft.drawLine(162, 53, 179, 37, ILI9341_BLACK);
+  tft.drawLine(162, 51, 179, 35, ILI9341_BLACK);
+}
 void setup() {
 // Loading screen  
 pinMode(PinTipkalo, INPUT_PULLUP);
@@ -523,6 +559,7 @@ void loop() {
     || inRange(X, Xauto2 - 10, Xauto2 + 10) && inRange(Y, Yauto2 - 10, Yauto2 + 10))
     {
       Serial.print("hit");
+      deathscreen();
       dead = true;
     }
     // Ljevo desno kretanje
@@ -564,5 +601,10 @@ void loop() {
       onetime = true;
       loading();
       }
+  if (dead == true && eintime == true){
+    tft.fillScreen(ILI9341_BLACK);
+    delay (10);
+    deathscreen();
+    eintime = false;
+  }
 }
-
