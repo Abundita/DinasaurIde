@@ -273,11 +273,26 @@ int carXP(int z){
   Xssvjetla1 += 20 +z;
   Xssvjetla2 += 20 +z;
 }
-
+int carXPReset(){
+  int Xauto = 200;
+  int Yauto = 65;
+  int Xsvjetla1 = 203;
+  int Ysvjetla1 = 70;
+  int Xsvjetla2 = 222;
+  int Ysvjetla2 = 70;
+  int Xretrovizor = 197;
+  int Yretrovizor = 74;
+  int Xstaklo = 204;
+  int Ystaklo = 78;
+  int Xssvjetla1 = 204;
+  int Xssvjetla2 = 221;
+  int Yssvjetla2 = 101;
+}
 void setup() {
   // Loading screen
   pinMode(PinTipkalo, INPUT_PULLUP);
   tft.begin();
+  tft.fillScreen(ILI9341_BLACK);
   tft.setRotation(3);
   tft.drawRoundRect(30, 175, 245, 37, 6, ILI9341_WHITE);
   tft.setTextSize(4);
@@ -346,10 +361,10 @@ void loop() {
     //Serial.println  (StanjeTipkalaUD);
     // Ljevo desno kretanje
     if (StanjeTipkala >= 1300 and StanjeTipkala <= 2100){
-      move_bodyXP();
+      carXM(0);
     }
     if (StanjeTipkala == 4095){
-      move_bodyXM ();
+      carXP(0);
       }
     // Gore dole kretanje 
     if (StanjeTipkalaUD >= 1300 and StanjeTipkalaUD <= 2100){
@@ -360,7 +375,9 @@ void loop() {
       }
     // Auto ide vrum vrum 
     carYM(-15);
-    if (Yssvjetla1 <= 0){
+    if (Yssvjetla1 <= -1){
+      carXPReset(); 
+      carYP(260);
       
     }
   }
