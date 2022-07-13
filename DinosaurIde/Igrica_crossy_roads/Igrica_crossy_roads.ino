@@ -420,7 +420,17 @@ void loop() {
     //Serial.println (StanjeTipkala);
     //Serial.println  (StanjeTipkalaUD);
     // Ljevo desno kretanje
-    if (inRange(Xglava, Xauto - 10, Xauto + 10) && inRange(Yglava, Yauto - 10, Yauto + 10) || inRange(Xglava, Xretrovizor - 10, Xretrovizor + 10) && inRange(Yglava, Yretrovizor - 10, Yretrovizor + 10) ||  inRange(Xkapa2, Xauto - 10, Xauto + 10) && inRange(Ykapa2, Yauto - 10, Yauto + 10) || inRange(Xnoga1, Xauto - 10, Xauto + 10) && inRange(Ynoga1, Yauto - 10, Yauto + 10) || inRange(Xnoga2, Xauto - 10, Xauto + 10) && inRange(Ynoga2, Yauto - 10, Yauto + 10) || inRange(Xrep, Xauto - 10, Xauto + 10) && inRange(Yrep, Yauto - 10, Yauto + 10 ) ||  inRange(Xglava, Xssvjetla1 - 10, Xssvjetla1 + 10) && inRange(Yglava, Yssvjetla1 - 10, Yssvjetla1 + 10) ||  inRange(Xglava, Xssvjetla2 - 10, Xssvjetla2 + 10) && inRange(Yglava, Yssvjetla2 - 10, Yssvjetla2+ 10) ||  inRange(Xkapa2, Xssvjetla1 - 10, Xssvjetla1 + 10) && inRange(Ykapa2, Yssvjetla1 - 10, Yssvjetla1+ 10) ||  inRange(Xrep, Xssvjetla1 - 10, Xssvjetla1 + 10) && inRange(Xrep, Yssvjetla1 - 10, Yssvjetla1+ 10) ||  inRange(Xrep, Xssvjetla2 - 10, Xssvjetla2 + 10) && inRange(Yrep, Yssvjetla2 - 10, Yssvjetla2+ 10) )
+    if (inRange(Xglava, Xauto - 10, Xauto + 10) && inRange(Yglava, Yauto - 10, Yauto + 10) 
+    || inRange(Xglava, Xretrovizor - 10, Xretrovizor + 10) && inRange(Yglava, Yretrovizor - 10, Yretrovizor + 10) 
+    ||  inRange(Xkapa2, Xauto - 10, Xauto + 10) && inRange(Ykapa2, Yauto - 10, Yauto + 10) 
+    || inRange(Xnoga1, Xauto - 10, Xauto + 10) && inRange(Ynoga1, Yauto - 10, Yauto + 10) 
+    || inRange(Xnoga2, Xauto - 10, Xauto + 10) && inRange(Ynoga2, Yauto - 10, Yauto + 10) 
+    || inRange(Xrep, Xauto - 10, Xauto + 10) && inRange(Yrep, Yauto - 10, Yauto + 10 ) 
+    ||  inRange(Xglava, Xssvjetla1 - 10, Xssvjetla1 + 10) && inRange(Yglava, Yssvjetla1 - 10, Yssvjetla1 + 10) 
+    ||  inRange(Xglava, Xssvjetla2 - 10, Xssvjetla2 + 10) && inRange(Yglava, Yssvjetla2 - 10, Yssvjetla2+ 10) 
+    ||  inRange(Xkapa2, Xssvjetla1 - 10, Xssvjetla1 + 10) && inRange(Ykapa2, Yssvjetla1 - 10, Yssvjetla1+ 10) 
+    ||  inRange(Xrep, Xssvjetla1 - 10, Xssvjetla1 + 10) && inRange(Xrep, Yssvjetla1 - 10, Yssvjetla1+ 10) 
+    ||  inRange(Xrep, Xssvjetla2 - 10, Xssvjetla2 + 10) && inRange(Yrep, Yssvjetla2 - 10, Yssvjetla2+ 10) )
     {
       Serial.print("hit");
       dead = true;
