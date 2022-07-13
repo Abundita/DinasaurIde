@@ -276,8 +276,11 @@ int carXP(int z){
 
 void setup() {
   // Loading screen
+  
   pinMode(PinTipkalo, INPUT_PULLUP);
+  
   tft.begin();
+  tft.fillScreen(ILI9341_BLACK);
   tft.setRotation(3);
   tft.drawRoundRect(30, 175, 245, 37, 6, ILI9341_WHITE);
   tft.setTextSize(4);
