@@ -8,6 +8,8 @@ int PinTipkalo = 39;
 int StanjeTipkala2;
 bool start = false;
 bool onetime = true;
+int TipkaMENU = 13;
+int StisnutMENU;
 // tipke i srce
 int TipkaLR = 34;
 int TipkaUD = 35;
@@ -377,6 +379,18 @@ bool inRange(int val, int minimum, int maximum)
 {
   return ((minimum <= val) && (val <= maximum));
 }
+int loading () {
+  // Loading screen
+  pinMode(PinTipkalo, INPUT_PULLUP);
+  tft.begin();
+  tft.setRotation(3);
+  tft.fillScreen(ILI9341_BLACK);
+  tft.drawRoundRect(30, 175, 270, 45, 6, ILI9341_WHITE);
+  tft.setTextSize(4);
+  tft.setCursor(35, 185);
+  tft.setTextColor(ILI9341_YELLOW);
+  tft.println("PRESS START");
+}
 
 void setup() {
 // Loading screen  
@@ -428,6 +442,7 @@ Serial.begin (9600);
 tft.begin(); 
 }
 void loop() {
+  StisnutMENU = digitalRead(TipkaMENU);
   StanjeTipkala2 = digitalRead(PinTipkalo);
   if (StanjeTipkala2 == LOW and onetime == true) {
       tft.fillScreen(ILI9341_BLACK);
@@ -544,4 +559,9 @@ void loop() {
       car2YP(-20);    
   }
  }
+  if (StisnutMENU == LOW){
+      start = false;
+      onetime = true;
+      loading();
+      }
 }
