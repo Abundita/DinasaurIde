@@ -3,6 +3,17 @@
 #define TFT_CS  5
 #define TFT_DC 21
 Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC);
+// Coin
+int Xkocka1 = 90;
+int Ykocka1 = 70;
+int Xkocka2 = 89;
+int Ykocka2 = 69;
+int CoinRANDOM(int R){
+  Xkocka1 = 90 +R;
+  Ykocka1 = 70 +R;
+  Xkocka2 = 89 +R;
+  Ykocka2 = 69 +R;
+}
 // road
 int Xcesta1 = 193;
 int Xcesta2 = 215;
@@ -54,7 +65,8 @@ int Xssvjetla1 = 204;
 int Yssvjetla1 = 101;
 int Xssvjetla2 = 221;
 int Yssvjetla2 = 101;
-int xrandom = random(160, 310);   
+int xrandom = random(210);   
+int yrandom = random(170);
 //auto na drugu stranu
 int Xauto2 = 260;
 int Yauto2 = 10;
@@ -328,6 +340,16 @@ int RoadXM()
   Xcesta11 -= 20;
   Xcesta22 -= 20;
 }
+int RoadReset(){
+  Xcesta1 = 193;
+  Xcesta2 = 215;
+  Xcesta11 = 253;
+  Xcesta22 = 275;
+  Ycesta1 = 1;
+  Ycesta2 = 1;
+  Ycesta11 = 1;
+  Ycesta22 = 1;
+}
 int carYM(int z){
   Yauto -= 20 +z;
   Ysvjetla1 -= 20 +z;
@@ -465,6 +487,7 @@ int truckYM(int z) {
   Yksvjetla2   -= 20 +z;
   Ykstaklo     -= 20 +z;
 }
+int truckYP();
 bool inRange(int val, int minimum, int maximum)
 {
   return ((minimum <= val) && (val <= maximum));
@@ -594,6 +617,7 @@ void loop() {
     onetime = false;
     dead = false;
   }
+  
   if (start == true && dead == false){
     delay (100);  
     // Granice ekrana
@@ -702,12 +726,6 @@ void loop() {
       truckXM();
       RoadXM();
     }
-    if (StanjeTipkala == 4095){
-      carXP(0);
-      truckXP();
-      RoadXP();
-      move_bodyYP ();
-      }
 
     // Gore dole kretanje 
     if (StanjeTipkalaUD >= 1300 and StanjeTipkalaUD <= 2100){
@@ -725,6 +743,8 @@ void loop() {
     if (Xssvjetla2 <= -20){
       carXPReset(); 
       carYP(270);      
+    if (Xssvjetla2 <= -60){
+      carXPReset();       
     } else if (Yssvjetla2 <= -1){
       carYP(270);
     } else if (Yksvjetla1 <= -60){
@@ -736,6 +756,9 @@ void loop() {
       car2YP(-40);    
     } else if (Yssvjetla21 >= 250){
       car2YP(-320);
+    }
+    if (Xcesta2 <= -80){
+      RoadReset();
     }    
   if (StisnutMENU == LOW){
       start = false;
