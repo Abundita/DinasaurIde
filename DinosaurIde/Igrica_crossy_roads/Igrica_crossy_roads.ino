@@ -767,7 +767,6 @@ void loop() {
       onetime = true;
       loading();
       }
-  }
   if (dead == true && eintime == true){
     tft.fillScreen(ILI9341_BLACK);
     delay (10);
