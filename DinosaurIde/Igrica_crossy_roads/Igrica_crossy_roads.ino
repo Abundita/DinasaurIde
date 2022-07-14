@@ -325,13 +325,13 @@ int carXPReset(){
   Yssvjetla2 = 101;
 }
 int car2XP(int y){
-  Xauto2 += 5 +y;
-  Xsvjetla21 += 5 +y;
-  Xsvjetla22 += 5 +y;
-  Xretrovizor2 += 5 +y;
-  Xstaklo2 += 5 +y; 
-  Xssvjetla21 += 5 +y;
-  Xssvjetla22 += 5 +y;
+  Xauto2 += 20 +y;
+  Xsvjetla21 += 20 +y;
+  Xsvjetla22 += 20 +y;
+  Xretrovizor2 += 20 +y;
+  Xstaklo2 += 20 +y; 
+  Xssvjetla21 += 20 +y;
+  Xssvjetla22 += 20 +y;
 }
 int car2XM(int y){
   Xauto2 -= 20 +y;
@@ -565,15 +565,11 @@ void loop() {
     // Ljevo desno kretanje
     if (StanjeTipkala >= 1300 and StanjeTipkala <= 2100){
       carXM(0);
-    }
-    if (StanjeTipkala == 4095){
-      carXP(0);
-      }
-    if (StanjeTipkala >= 1300 and StanjeTipkala <= 2100){
       car2XM(0);
     }
     if (StanjeTipkala == 4095){
-      car2XP(0);
+      carXP(0);
+      move_bodyYP ();
       }
     // Gore dole kretanje 
     if (StanjeTipkalaUD >= 1300 and StanjeTipkalaUD <= 2100){
@@ -585,7 +581,7 @@ void loop() {
     
     // Auto ide vrum vrum 
     carYM(-15);
-    car2YP(19);
+    car2YP(-15);
     if (Yssvjetla1 <= -1){
       carXPReset(); 
       carYP(210);      
