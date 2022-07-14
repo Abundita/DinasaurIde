@@ -16,6 +16,20 @@ int TipkaLR = 34;
 int TipkaUD = 35;
 int StanjeTipkala;
 int StanjeTipkalaUD;
+// kamion
+int Xkamion1 = 197;
+int Ykamion1 = 192;
+int Xkamion2 = 203;
+int Ykamion2 = 178;
+int Xkretrovizor = 200;
+int Ykretrovizor = 184;
+int Xksvjetla1 = 205;
+int Yksvjetla1 = 181;
+int Xksvjetla2 = 221;
+int Yksvjetla2 = 181;
+int Xkstaklo = 206;
+int Ykstaklo = 186;
+
 // Auto 
 int Xauto = 200;
 int Yauto = 65;
@@ -271,6 +285,26 @@ tft.drawRect(Xssvjetla21, Yssvjetla21, 5, 3, ILI9341_BLACK);
 tft.drawRect(Xssvjetla22, Yssvjetla22, 5, 3, ILI9341_BLACK);
 
 }
+int road(){
+  //cesta
+  tft.fillRect(193, 1, 46, 239, ILI9341_WHITE);
+  tft.fillRect(215, 1, 3, 239, ILI9341_BLACK);
+  //druga cesta
+  tft.fillRect(253, 1, 46, 239, ILI9341_WHITE);
+  tft.fillRect(275, 1, 3, 239, ILI9341_BLACK);
+}
+int truck(){
+  //kamion
+  tft.fillRect(Xkamion1, Ykamion1, 38, 46, ILI9341_RED);
+  tft.fillRect(Xkamion2, Ykamion2, 26, 14, ILI9341_BLUE);
+  //retrovizori
+  tft.fillRect(Xkretrovizor, Ykretrovizor, 32, 5, ILI9341_BLUE);
+  //svjetla
+  tft.fillRect(Xksvjetla1, Yksvjetla1, 6, 4, ILI9341_YELLOW);
+  tft.fillRect(Xksvjetla2, Yksvjetla2, 6, 4, ILI9341_YELLOW);
+  //staklo
+  tft.drawRect(Xkstaklo, Ykstaklo, 20, 5, ILI9341_BLACK);
+}
 int carYM(int z){
   Yauto -= 20 +z;
   Ysvjetla1 -= 20 +z;
@@ -493,7 +527,7 @@ void loop() {
       dead = false;
   }
   if (start == true && dead == false){
-    delay (100);
+    delay (100);  
     // Granice ekrana
     //Serial.print (Yglava);
     if (Yglava <= 2){
@@ -567,6 +601,11 @@ void loop() {
       carXM(0);
       car2XM(0);
     }
+    if (StanjeTipkala == 4095){
+      carXP(0);
+      move_bodyYP ();
+      }
+
     // Gore dole kretanje 
     if (StanjeTipkalaUD >= 1300 and StanjeTipkalaUD <= 2100){
         move_bodyYP ();
