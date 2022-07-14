@@ -3,6 +3,15 @@
 #define TFT_CS  5
 #define TFT_DC 21
 Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC);
+// road
+int Xcesta1 = 193;
+int Xcesta2 = 215;
+int Xcesta11 = 253;
+int Xcesta22 = 275;
+int Ycesta1 = 1;
+int Ycesta2 = 1;
+int Ycesta11 = 1;
+int Ycesta22 = 1;
 // loading screen
 int PinTipkalo = 39;
 int StanjeTipkala2;
@@ -287,11 +296,11 @@ tft.drawRect(Xssvjetla22, Yssvjetla22, 5, 3, ILI9341_BLACK);
 }
 int road(){
   //cesta
-  tft.fillRect(193, 1, 46, 239, ILI9341_WHITE);
-  tft.fillRect(215, 1, 3, 239, ILI9341_BLACK);
+  tft.fillRect(Xcesta1, Ycesta1, 46, 239, ILI9341_WHITE);
+  tft.fillRect(Xcesta2, Ycesta2, 3, 239, ILI9341_BLACK);
   //druga cesta
-  tft.fillRect(253, 1, 46, 239, ILI9341_WHITE);
-  tft.fillRect(275, 1, 3, 239, ILI9341_BLACK);
+  tft.fillRect(Xcesta11, Ycesta11, 46, 239, ILI9341_WHITE);
+  tft.fillRect(Xcesta22, Ycesta22, 3, 239, ILI9341_BLACK);
 }
 int truck(){
   //kamion
@@ -304,6 +313,20 @@ int truck(){
   tft.fillRect(Xksvjetla2, Yksvjetla2, 6, 4, ILI9341_YELLOW);
   //staklo
   tft.drawRect(Xkstaklo, Ykstaklo, 20, 5, ILI9341_BLACK);
+}
+int RoadXP() 
+{
+  Xcesta1  += 20;
+  Xcesta2  += 20;
+  Xcesta11 += 20;
+  Xcesta22 += 20;
+}
+int RoadXM() 
+{
+  Xcesta1  -= 20;
+  Xcesta2  -= 20;
+  Xcesta11 -= 20;
+  Xcesta22 -= 20;
 }
 int carYM(int z){
   Yauto -= 20 +z;
@@ -410,6 +433,23 @@ int car2XPReset(){
   Xssvjetla22 = 282;
   Yssvjetla22 = 14;
 }
+int truckXP(){
+  Xkamion1     += 20;
+  Xkamion2     += 20;
+  Xkretrovizor += 20;
+  Xksvjetla1   += 20;
+  Xksvjetla2   += 20;
+  Xkstaklo     += 20;
+}
+int truckXM(){
+  Xkamion1     -= 20;
+  Xkamion2     -= 20;
+  Xkretrovizor -= 20;
+  Xksvjetla1   -= 20;
+  Xksvjetla2   -= 20;
+  Xkstaklo     -= 20;
+}
+int truckYP()
 bool inRange(int val, int minimum, int maximum)
 {
   return ((minimum <= val) && (val <= maximum));
@@ -546,10 +586,15 @@ void loop() {
     Serial.println ("Rep");
     Serial.println (Xrep);
     // Refreshanje ekrana
+    
+    
     tft.fillScreen(ILI9341_BLACK);
+    road(); 
+    truck();
     car();
     car2();
     dino();
+    
     // Citanje kontrola
     StanjeTipkala = analogRead(TipkaLR);
     StanjeTipkalaUD = analogRead(TipkaUD);
@@ -600,9 +645,13 @@ void loop() {
     if (StanjeTipkala >= 1300 and StanjeTipkala <= 2100){
       carXM(0);
       car2XM(0);
+      truckXM();
+      RoadXM();
     }
     if (StanjeTipkala == 4095){
       carXP(0);
+      truckXP();
+      RoadXP();
       move_bodyYP ();
       }
 
