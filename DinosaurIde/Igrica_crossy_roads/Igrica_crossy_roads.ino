@@ -449,7 +449,22 @@ int truckXM(){
   Xksvjetla2   -= 20;
   Xkstaklo     -= 20;
 }
-int truckYP()
+int truckYP() {
+  Ykamion1     += 20;
+  Ykamion2     += 20;
+  Ykretrovizor += 20;
+  Yksvjetla1   += 20;
+  Yksvjetla2   += 20;
+  Ykstaklo     += 20;
+}
+int truckYM(int z) {
+  Ykamion1     -= 20 +z;
+  Ykamion2     -= 20 +z;
+  Ykretrovizor -= 20 +z;
+  Yksvjetla1   -= 20 +z;
+  Yksvjetla2   -= 20 +z;
+  Ykstaklo     -= 20 +z;
+}
 bool inRange(int val, int minimum, int maximum)
 {
   return ((minimum <= val) && (val <= maximum));
@@ -502,69 +517,82 @@ int deathscreen (){
   tft.drawLine(162, 53, 179, 37, ILI9341_BLACK);
   tft.drawLine(162, 51, 179, 35, ILI9341_BLACK);
 }
-void setup() {
-// Loading screen  
-pinMode(PinTipkalo, INPUT_PULLUP);
-  
-tft.begin();
-tft.setRotation(3);
-tft.fillScreen(ILI9341_BLACK);
-tft.drawRoundRect(30, 175, 270, 45, 6, ILI9341_WHITE);   
-tft.setTextSize(4);
-tft.setCursor(35, 185);
-tft.setTextColor(ILI9341_YELLOW);
-tft.println("PRESS START");
+int truckXPreset(){
+  Xkamion1 = 197;
+  Ykamion1 = 192+80;
+  Xkamion2 = 203;
+  Ykamion2 = 178+80;
+  Xkretrovizor = 200;
+  Ykretrovizor = 184+80;
+  Xksvjetla1 = 205;
+  Yksvjetla1 = 181+80;
+  Xksvjetla2 = 221;
+  Yksvjetla2 = 181+80;
+  Xkstaklo = 206;
+  Ykstaklo = 186+80;
 
-
-//character dinosaur
-tft.setTextSize(5);
-tft.setRotation(3);
-//tijelo i glava
-tft.fillRect(140, 110, 20, 20, ILI9341_GREEN); 
-tft.fillRect(153, 102, 12, 12, ILI9341_GREEN);
-//oko i usta
-tft.fillRect(158, 105, 2, 2, ILI9341_BLACK);
-tft.drawLine(161, 111, 165, 111, ILI9341_BLACK);
-tft.fillRect(160, 110, 1.5, 1, ILI9341_BLACK);
-//kapa
-tft.drawLine(149, 101, 164, 101, ILI9341_RED);
-tft.fillRect(155, 95, 10, 7.5, ILI9341_RED);
-//noge
-tft.fillRect(140, 130, 5, 5, ILI9341_GREEN);
-tft.fillRect(156.5, 130, 5, 5, ILI9341_GREEN);
-//rep
-tft.fillRect(130, 113, 11, 4.5, ILI9341_GREEN);
-//bodlje na leđima
-tft.drawTriangle(146, 109.5, 149, 106.5, 152, 109.5, ILI9341_WHITE);
-tft.drawTriangle(141, 109.5, 144, 106.5, 147, 109.5, ILI9341_WHITE);
-tft.drawTriangle(133, 112, 136, 109, 139, 112, ILI9341_WHITE);
-
-tft.setTextColor(ILI9341_GREEN);
-tft.setTextSize(4.7);
-tft.setRotation(3);
-tft.setCursor(20, 20);
-tft.println("DINOSAURIDE");
-
-// Gumbovi
-pinMode(TipkaLR, INPUT_PULLUP);
-pinMode(TipkaUD, INPUT_PULLUP);
-Serial.begin (9600);
-tft.begin(); 
 }
+void setup() {
+  // Loading screen  
+  pinMode(PinTipkalo, INPUT_PULLUP);
+  Serial.begin (9600);
+  tft.begin();
+  tft.setRotation(3);
+  tft.fillScreen(ILI9341_BLACK);
+  tft.drawRoundRect(25, 175, 270, 45, 6, ILI9341_WHITE);
+  tft.setTextSize(4);
+  tft.setCursor(30, 185);
+  tft.setTextColor(ILI9341_YELLOW);
+  tft.println("PRESS START");
+
+
+  //character dinosaur
+  tft.setTextSize(5);
+  tft.setRotation(3);
+  //tijelo i glava
+  tft.fillRect(140, 110, 20, 20, ILI9341_GREEN); 
+  tft.fillRect(153, 102, 12, 12, ILI9341_GREEN);
+  //oko i usta
+  tft.fillRect(158, 105, 2, 2, ILI9341_BLACK);
+  tft.drawLine(161, 111, 165, 111, ILI9341_BLACK);
+  tft.fillRect(160, 110, 1.5, 1, ILI9341_BLACK);
+  //kapa
+  tft.drawLine(149, 101, 164, 101, ILI9341_RED);
+  tft.fillRect(155, 95, 10, 7.5, ILI9341_RED);
+  //noge
+  tft.fillRect(140, 130, 5, 5, ILI9341_GREEN);
+  tft.fillRect(156.5, 130, 5, 5, ILI9341_GREEN);
+  //rep
+  tft.fillRect(130, 113, 11, 4.5, ILI9341_GREEN);
+  //bodlje na leđima
+  tft.drawTriangle(146, 109.5, 149, 106.5, 152, 109.5, ILI9341_WHITE);
+  tft.drawTriangle(141, 109.5, 144, 106.5, 147, 109.5, ILI9341_WHITE);
+  tft.drawTriangle(133, 112, 136, 109, 139, 112, ILI9341_WHITE);
+
+  tft.setTextColor(ILI9341_GREEN);
+  tft.setTextSize(4.7);
+  tft.setRotation(3);
+  tft.setCursor(30, 20);
+  tft.println("DINOSAURIDE");
+  pinMode(TipkaLR, INPUT_PULLUP);
+  pinMode(TipkaUD, INPUT_PULLUP);
+}
+
 void loop() {
+  // put your main code here, to run repeatedly:
   StisnutMENU = digitalRead(TipkaMENU);
   StanjeTipkala2 = digitalRead(PinTipkalo);
-  if (StanjeTipkala2 == LOW and onetime == true) {
-      tft.fillScreen(ILI9341_BLACK);
-      tft.setTextSize(5);
-      tft.setTextColor(ILI9341_WHITE);
-      tft.setCursor(20, 110);
-      tft.setRotation(3);
-      tft.println("LOADING...");
-      delay(2000);
-      start = true;
-      onetime = false;
-      dead = false;
+  if (StanjeTipkala2 == LOW && onetime == true) {
+    tft.fillScreen(ILI9341_BLACK);
+    tft.setTextSize(5);
+    tft.setTextColor(ILI9341_WHITE);
+    tft.setCursor(20, 110);
+    tft.setRotation(3);
+    tft.println("LOADING...");
+    delay(2000);
+    start = true;
+    onetime = false;
+    dead = false;
   }
   if (start == true && dead == false){
     delay (100);  
@@ -589,6 +617,7 @@ void loop() {
     
     
     tft.fillScreen(ILI9341_BLACK);
+    delay (10);
     road(); 
     truck();
     car();
@@ -601,41 +630,66 @@ void loop() {
     //Serial.println (StanjeTipkala);
     //Serial.println  (StanjeTipkalaUD);
     // Hit detection 
-    if (inRange(Xglava, Xauto - 10, Xauto + 10) && inRange(Yglava, Yauto - 10, Yauto + 10) 
-    || inRange(Xglava, Xretrovizor - 10, Xretrovizor + 10) && inRange(Yglava, Yretrovizor - 10, Yretrovizor + 10) 
-    || inRange(Xkapa2, Xauto - 10, Xauto + 10) && inRange(Ykapa2, Yauto - 10, Yauto + 10) 
-    || inRange(Xnoga1, Xauto - 10, Xauto + 10) && inRange(Ynoga1, Yauto - 10, Yauto + 10) 
-    || inRange(Xnoga2, Xauto - 10, Xauto + 10) && inRange(Ynoga2, Yauto - 10, Yauto + 10) 
-    || inRange(Xrep, Xauto - 10, Xauto + 10) && inRange(Yrep, Yauto - 10, Yauto + 10 ) 
-    || inRange(Xglava, Xssvjetla1 - 10, Xssvjetla1 + 10) && inRange(Yglava, Yssvjetla1 - 10, Yssvjetla1 + 10) 
-    || inRange(Xglava, Xssvjetla2 - 10, Xssvjetla2 + 10) && inRange(Yglava, Yssvjetla2 - 10, Yssvjetla2+ 10) 
-    || inRange(Xkapa2, Xssvjetla1 - 10, Xssvjetla1 + 10) && inRange(Ykapa2, Yssvjetla1 - 10, Yssvjetla1+ 10) 
-    || inRange(Xrep, Xssvjetla1 - 10, Xssvjetla1 + 10) && inRange(Xrep, Yssvjetla1 - 10, Yssvjetla1+ 10) 
-    || inRange(Xrep, Xssvjetla2 - 10, Xssvjetla2 + 10) && inRange(Yrep, Yssvjetla2 - 10, Yssvjetla2+ 10) 
-    || inRange(X, Xssvjetla1 - 10, Xssvjetla1 + 10) && inRange(Y, Yssvjetla1 - 10, Yssvjetla1+ 10)
-    || inRange(X, Xssvjetla2 - 10, Xssvjetla2 + 10) && inRange(Y, Yssvjetla2 - 10, Yssvjetla2+ 10)
-    || inRange(X, Xssvjetla1 - 10, Xssvjetla1 + 10) && inRange(Y, Yssvjetla1 - 10, Yssvjetla1+ 10)
-    || inRange(X, Xauto - 10, Xauto + 10) && inRange(Y, Yauto - 10, Yauto + 10))
+    if (inRange(Xglava, Xauto - 9, Xauto + 9)             && inRange(Yglava, Yauto - 9, Yauto + 9) 
+    || inRange(Xglava, Xretrovizor - 9, Xretrovizor + 9)  && inRange(Yglava, Yretrovizor - 9, Yretrovizor + 9) 
+    || inRange(Xkapa2, Xauto - 9, Xauto + 9)              && inRange(Ykapa2, Yauto - 9, Yauto + 9) 
+    || inRange(Xnoga1, Xauto - 9, Xauto + 9)              && inRange(Ynoga1, Yauto - 9, Yauto + 9) 
+    || inRange(Xnoga2, Xauto - 9, Xauto + 9)              && inRange(Ynoga2, Yauto - 9, Yauto + 9) 
+    || inRange(Xrep, Xauto - 9, Xauto + 9)                && inRange(Yrep, Yauto - 9, Yauto + 9 ) 
+    || inRange(Xglava, Xssvjetla1 - 9, Xssvjetla1 + 9)    && inRange(Yglava, Yssvjetla1 - 9, Yssvjetla1 + 9) 
+    || inRange(Xglava, Xssvjetla2 - 9, Xssvjetla2 + 9)    && inRange(Yglava, Yssvjetla2 - 9, Yssvjetla2+ 9) 
+    || inRange(Xkapa2, Xssvjetla1 - 9, Xssvjetla1 + 9)    && inRange(Ykapa2, Yssvjetla1 - 9, Yssvjetla1+ 9) 
+    || inRange(Xrep, Xssvjetla1 - 9, Xssvjetla1 + 9)      && inRange(Xrep, Yssvjetla1 - 9, Yssvjetla1+ 9) 
+    || inRange(Xrep, Xssvjetla2 - 9, Xssvjetla2 + 9)      && inRange(Yrep, Yssvjetla2 - 9, Yssvjetla2+ 9) 
+    || inRange(X, Xssvjetla1 - 9, Xssvjetla1 + 9)         && inRange(Y, Yssvjetla1 - 9, Yssvjetla1+ 9)
+    || inRange(X, Xssvjetla2 - 9, Xssvjetla2 + 9)         && inRange(Y, Yssvjetla2 - 9, Yssvjetla2+ 9)
+    || inRange(X, Xssvjetla1 - 9, Xssvjetla1 + 9)         && inRange(Y, Yssvjetla1 - 9, Yssvjetla1+ 9)
+    || inRange(X, Xauto - 9, Xauto + 9)                   && inRange(Y, Yauto - 9, Yauto + 9))   
     {
       Serial.print("hit");
       dead = true;
     }
     // car2
-    if (inRange(Xglava, Xauto2 - 10, Xauto2 + 10) && inRange(Yglava, Yauto2 - 10, Yauto2 + 10) 
-    || inRange(Xglava, Xretrovizor2 - 10, Xretrovizor2 + 10) && inRange(Yglava, Yretrovizor2 - 10, Yretrovizor2 + 10) 
-    || inRange(Xkapa2, Xauto2 - 10, Xauto + 10) && inRange(Ykapa2, Yauto2 - 10, Yauto2 + 10) 
-    || inRange(Xnoga1, Xauto2 - 10, Xauto2 + 10) && inRange(Ynoga1, Yauto2 - 10, Yauto2 + 10) 
-    || inRange(Xnoga2, Xauto2 - 10, Xauto2 + 10) && inRange(Ynoga2, Yauto2 - 10, Yauto2 + 10) 
-    || inRange(Xrep, Xauto2 - 10, Xauto2 + 10) && inRange(Yrep, Yauto2 - 10, Yauto2 + 10 ) 
-    || inRange(Xglava, Xssvjetla21 - 10, Xssvjetla21 + 10) && inRange(Yglava, Yssvjetla21 - 10, Yssvjetla21 + 10) 
-    || inRange(Xglava, Xssvjetla22 - 10, Xssvjetla22 + 10) && inRange(Yglava, Yssvjetla22 - 10, Yssvjetla22+ 10) 
-    || inRange(Xkapa2, Xssvjetla21 - 10, Xssvjetla21 + 10) && inRange(Ykapa2, Yssvjetla21 - 10, Yssvjetla21+ 10) 
-    || inRange(Xrep, Xssvjetla21 - 10, Xssvjetla21 + 10) && inRange(Xrep, Yssvjetla21 - 10, Yssvjetla21+ 10) 
-    || inRange(Xrep, Xssvjetla22 - 10, Xssvjetla22 + 10) && inRange(Yrep, Yssvjetla22 - 10, Yssvjetla22+ 10) 
-    || inRange(X, Xssvjetla21 - 10, Xssvjetla21 + 10) && inRange(Y, Yssvjetla21 - 10, Yssvjetla21+ 10)
-    || inRange(X, Xssvjetla22 - 10, Xssvjetla22 + 10) && inRange(Y, Yssvjetla22 - 10, Yssvjetla22+ 10)
-    || inRange(X, Xssvjetla21 - 10, Xssvjetla21 + 10) && inRange(Y, Yssvjetla21 - 10, Yssvjetla21+ 10)
-    || inRange(X, Xauto2 - 10, Xauto2 + 10) && inRange(Y, Yauto2 - 10, Yauto2 + 10))
+    if (inRange(Xglava, Xauto2 - 9, Xauto2 + 9)            && inRange(Yglava, Yauto2 - 9, Yauto2 + 9) 
+    || inRange(Xglava, Xretrovizor2 - 9, Xretrovizor2 + 9) && inRange(Yglava, Yretrovizor2 - 9, Yretrovizor2 + 9) 
+    || inRange(Xkapa2, Xauto2 - 9, Xauto + 9)              && inRange(Ykapa2, Yauto2 - 9, Yauto2 + 9) 
+    || inRange(Xnoga1, Xauto2 - 9, Xauto2 + 9)             && inRange(Ynoga1, Yauto2 - 9, Yauto2 + 9) 
+    || inRange(Xnoga2, Xauto2 - 9, Xauto2 + 9)             && inRange(Ynoga2, Yauto2 - 9, Yauto2 + 9) 
+    || inRange(Xrep, Xauto2 - 9, Xauto2 + 9)               && inRange(Yrep, Yauto2 - 9, Yauto2 + 9 ) 
+    || inRange(Xglava, Xssvjetla21 - 9, Xssvjetla21 + 9)   && inRange(Yglava, Yssvjetla21 - 9, Yssvjetla21 + 9) 
+    || inRange(Xglava, Xssvjetla22 - 9, Xssvjetla22 + 9)   && inRange(Yglava, Yssvjetla22 - 9, Yssvjetla22+ 9) 
+    || inRange(Xkapa2, Xssvjetla21 - 9, Xssvjetla21 + 9)   && inRange(Ykapa2, Yssvjetla21 - 9, Yssvjetla21+ 9) 
+    || inRange(Xrep, Xssvjetla21 - 9, Xssvjetla21 + 9)     && inRange(Xrep, Yssvjetla21 - 9, Yssvjetla21+ 9) 
+    || inRange(Xrep, Xssvjetla22 - 9, Xssvjetla22 + 9)     && inRange(Yrep, Yssvjetla22 - 9, Yssvjetla22+ 9) 
+    || inRange(X, Xssvjetla21 - 9, Xssvjetla21 + 9)        && inRange(Y, Yssvjetla21 - 9, Yssvjetla21+ 9)
+    || inRange(X, Xssvjetla22 - 9, Xssvjetla22 + 9)        && inRange(Y, Yssvjetla22 - 9, Yssvjetla22+ 9)
+    || inRange(X, Xssvjetla21 - 9, Xssvjetla21 + 9)        && inRange(Y, Yssvjetla21 - 9, Yssvjetla21+ 9)
+    || inRange(X, Xauto2 - 9, Xauto2 + 9)                  && inRange(Y, Yauto2 - 9, Yauto2 + 9))
+    {
+      Serial.print("hit");
+      deathscreen();
+      dead = true;
+    }
+    if (inRange(Xglava, Xkamion1 - 9, Xkamion1 + 9)        && inRange(Yglava, Ykamion1 - 9, Ykamion1 + 9)
+    || inRange(Xglava, Xkamion2 - 9, Xkamion2 + 9)         && inRange(Yglava, Ykamion2 - 9, Ykamion2 + 9)  
+    || inRange(Xglava, Xkretrovizor - 9, Xkretrovizor + 9) && inRange(Yglava, Ykretrovizor - 9, Ykretrovizor + 9) 
+    || inRange(Xkapa2, Xkamion2 - 9, Xkamion2 + 9)         && inRange(Ykapa2, Ykamion2 - 9, Ykamion2 + 9) 
+    || inRange(Xnoga1, Xkamion1 - 9, Xkamion1 + 9)         && inRange(Ynoga1, Ykamion1 - 9, Ykamion1 + 9)
+    || inRange(Xnoga1, Xkamion2 - 9, Xkamion2+ 9)          && inRange(Ynoga1, Ykamion2 - 9, Ykamion2 + 9) 
+    || inRange(Xnoga2, Xkamion1 - 9, Xkamion1 + 9)         && inRange(Ynoga2, Ykamion1 - 9, Ykamion1 + 9)
+    || inRange(Xnoga2, Xkamion2 - 9, Xkamion2+ 9)          && inRange(Ynoga2, Ykamion2 - 9, Ykamion2 + 9)
+    || inRange(Xrep, Xkamion1 - 9, Xkamion1 + 9)           && inRange(Yrep, Ykamion1 - 9, Ykamion1 + 9 )
+    || inRange(Xrep, Xkamion2 - 9, Xkamion2 + 9)           && inRange(Yrep, Ykamion2 - 9, Ykamion2 + 9 ) 
+    || inRange(Xglava, Xksvjetla1 - 9, Xksvjetla1 + 9)     && inRange(Yglava, Yksvjetla1 - 9, Yksvjetla1 + 9) 
+    || inRange(Xglava, Xksvjetla2 - 9, Xksvjetla2 + 9)     && inRange(Yglava, Yksvjetla2 - 9, Yksvjetla2+ 9) 
+    || inRange(Xkapa2, Xkamion1 - 9, Xkamion1 + 9)         && inRange(Ykapa2, Ykamion1 - 9, Ykamion1+ 9) 
+    || inRange(Xkapa2, Xkamion2 - 9, Xkamion2 + 9)         && inRange(Ykapa2, Ykamion2 - 9, Ykamion2+ 9)
+    || inRange(Xrep, Xksvjetla1 - 9, Xksvjetla1 + 9)       && inRange(Xrep, Yksvjetla1 - 9, Yksvjetla1+ 9) 
+    || inRange(Xrep, Xksvjetla2 - 9, Xksvjetla2 + 9)       && inRange(Xrep, Yksvjetla2 - 9, Yksvjetla2+ 9)
+    || inRange(X, Xksvjetla1 - 9, Xksvjetla2 + 9)          && inRange(Y, Yksvjetla1 - 9, Yksvjetla1+ 9)
+    || inRange(X, Xksvjetla2 - 9, Xksvjetla2 + 9)          && inRange(Y, Yksvjetla2 - 9, Yksvjetla2+ 9)
+    || inRange(X, Xkamion1 - 9, Xkamion1 + 9)              && inRange(Y, Ykamion1 - 9, Ykamion1+ 9)
+    || inRange(X, Xkamion2 - 9, Xkamion2 + 9)              && inRange(Y, Ykamion2 - 9, Ykamion2 + 9))
     {
       Serial.print("hit");
       deathscreen();
@@ -666,11 +720,15 @@ void loop() {
     // Auto ide vrum vrum 
     carYM(-15);
     car2YP(-15);
+    truckYM(-15);
+
     if (Xssvjetla2 <= -20){
       carXPReset(); 
       carYP(270);      
     } else if (Yssvjetla2 <= -1){
       carYP(270);
+    } else if (Yksvjetla1 <= -60){
+      truckXPreset();
     }
     
     if (Xssvjetla21 <= -20){
@@ -678,8 +736,7 @@ void loop() {
       car2YP(-40);    
     } else if (Yssvjetla21 >= 250){
       car2YP(-320);
-  }
- }    
+    }    
   if (StisnutMENU == LOW){
       start = false;
       onetime = true;
@@ -690,5 +747,6 @@ void loop() {
     delay (10);
     deathscreen();
     eintime = false;
-  }
+  }  
+ } 
 }
