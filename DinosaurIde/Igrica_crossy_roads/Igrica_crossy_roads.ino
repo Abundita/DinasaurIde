@@ -539,7 +539,6 @@ int deathscreen (){
   tft.drawLine(162, 52, 179, 36, ILI9341_BLACK);
   tft.drawLine(162, 53, 179, 37, ILI9341_BLACK);
   tft.drawLine(162, 51, 179, 35, ILI9341_BLACK);
-}
 int truckXPreset(){
   Xkamion1 = 197;
   Ykamion1 = 192+80;
@@ -743,6 +742,7 @@ void loop() {
     if (Xssvjetla2 <= -20){
       carXPReset(); 
       carYP(270);      
+    }
     if (Xssvjetla2 <= -60){
       carXPReset();       
     } else if (Yssvjetla2 <= -1){
@@ -765,6 +765,7 @@ void loop() {
       onetime = true;
       loading();
       }
+  }
   if (dead == true && eintime == true){
     tft.fillScreen(ILI9341_BLACK);
     delay (10);
