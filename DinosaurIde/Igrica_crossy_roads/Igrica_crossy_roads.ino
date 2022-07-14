@@ -567,10 +567,6 @@ void loop() {
       carXM(0);
       car2XM(0);
     }
-    if (StanjeTipkala == 4095){
-      carXP(0);
-      move_bodyYP ();
-      }
     // Gore dole kretanje 
     if (StanjeTipkalaUD >= 1300 and StanjeTipkalaUD <= 2100){
         move_bodyYP ();
@@ -582,16 +578,20 @@ void loop() {
     // Auto ide vrum vrum 
     carYM(-15);
     car2YP(-15);
-    if (Yssvjetla1 <= -1){
+    if (Xssvjetla2 <= -20){
       carXPReset(); 
-      carYP(210);      
+      carYP(270);      
+    } else if (Yssvjetla2 <= -1){
+      carYP(270);
     }
     
-    if (Yssvjetla21 >= 250){
+    if (Xssvjetla21 <= -20){
       car2XPReset(); 
-      car2YP(-20);    
+      car2YP(-40);    
+    } else if (Yssvjetla21 >= 250){
+      car2YP(-320);
   }
- }
+ }    
   if (StisnutMENU == LOW){
       start = false;
       onetime = true;
