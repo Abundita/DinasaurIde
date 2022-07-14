@@ -255,7 +255,7 @@ int dino(){
   //tijelo i glava
   tft.fillRect(X, Y, 20, 20, ILI9341_GREEN); 
   tft.fillRect(Xglava, Yglava, 12, 12, ILI9341_GREEN);
-  
+   
   //oko i usta
   tft.fillRect(Xoko, Yoko, 2, 2, ILI9341_BLACK);
   tft.drawLine(Xusta1, Yusta1, Xusta3, Yusta3, ILI9341_BLACK);
