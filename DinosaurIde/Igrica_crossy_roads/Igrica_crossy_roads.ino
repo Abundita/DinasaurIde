@@ -4,15 +4,25 @@
 #define TFT_DC 21
 Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC);
 // Coin
-int Xkocka1 = 90;
-int Ykocka1 = 70;
-int Xkocka2 = 89;
-int Ykocka2 = 69;
+int randval = random(10, 210);
+int Xkocka1 = 208.7;
+int Ykocka1 = randval;
+int Xkocka2 = 208.7;
+int Ykocka2 = randval;
 int CoinRANDOM(int R){
   Xkocka1 = 90 +R;
   Ykocka1 = 70 +R;
   Xkocka2 = 89 +R;
   Ykocka2 = 69 +R;
+}
+//treca cesta
+int Xcesta31 = 74;
+int Ycesta31 = 1;
+int Xcesta32 = 96;
+int Ycesta32 = 1;
+int Cesta3(){
+  tft.fillRect(Xcesta31, Ycesta31, 46, 239, ILI9341_WHITE);
+  tft.fillRect(Xcesta32, Ycesta32, 3, 239, ILI9341_BLACK);
 }
 // road
 int Xcesta1 = 193;
@@ -329,6 +339,17 @@ int truck(){
 int Coin(){
   tft.fillRect(Xkocka1, Ykocka1, 15, 15, ILI9341_YELLOW);
   tft.drawRect(Xkocka2, Ykocka2, 16, 16, ILI9341_BLACK);
+}
+int CoinX(int C){
+  Xkocka1 -= 20 + C;
+  Xkocka2 -= 20 + C;
+}
+int CoinRESET(){
+  randval = random(10, 210);
+  Xkocka1 = 208.7;
+  Ykocka1 = randval;
+  Xkocka2 = 208.7;
+  Ykocka2 = randval;
 }
 int RoadXP() 
 {
@@ -732,6 +753,7 @@ void loop() {
       car2XM(0);
       truckXM(0);
       RoadXM();
+      CoinX(0);
     }
 
     // Gore dole kretanje 
@@ -788,6 +810,7 @@ void loop() {
     carXPReset();
     car2XPReset();
     truckXPreset();
+    CoinRESET();
   }  
   
  } 
