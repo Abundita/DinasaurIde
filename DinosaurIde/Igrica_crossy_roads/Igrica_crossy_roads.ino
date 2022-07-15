@@ -716,6 +716,9 @@ void loop() {
     || inRange(X, Xkamion1 - 8.5, Xkamion1 + 8.5)          && inRange(Y, Ykamion1 - 8.5, Ykamion1+ 8.5)
     || inRange(X, Xkamion2 - 10, Xkamion2 + 10)            && inRange(Y, Ykamion2 - 10, Ykamion2 + 10 ))
     {
+      // hitbox za kocku
+     if (inRange(Xkocka1, Xkocka2 - 20, Xkocka2 + 20)        && inRange(Ykocka1, Ykocka2 - 20, Ykocka2 +20)
+     ||  inRange(Xkocka1, Xkocka2 - 20, Xkocka2 + 20)        && inRange(Ykocka1, Ykocka2 - 20, Ykocka2 +20))
       Serial.print("hit");
       deathscreen();
       dead = true;
