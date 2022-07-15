@@ -65,20 +65,21 @@ int Yksvjetla2 = 181;
 int Xkstaklo = 206;
 int Ykstaklo = 186;
 // Auto
+int randvalPA = random(0,20);
 int Xauto = 200;
-int Yauto = 65;
+int Yauto = 65-randvalPA;
 int Xsvjetla1 = 203;
-int Ysvjetla1 = 70;
+int Ysvjetla1 = 70-randvalPA;
 int Xsvjetla2 = 222;
-int Ysvjetla2 = 70;
+int Ysvjetla2 = 70-randvalPA;
 int Xretrovizor = 197;
-int Yretrovizor = 74;
+int Yretrovizor = 74-randvalPA;
 int Xstaklo = 204;
-int Ystaklo = 78;
+int Ystaklo = 78-randvalPA;
 int Xssvjetla1 = 204;
-int Yssvjetla1 = 101;
+int Yssvjetla1 = 101-randvalPA;
 int Xssvjetla2 = 221;
-int Yssvjetla2 = 101;
+int Yssvjetla2 = 101-randvalPA;
 int xrandom = random(210);   
 int yrandom = random(170);
 //auto na drugu stranu
@@ -416,21 +417,21 @@ int carXP(int z){
   Xssvjetla2 += 20 +z;
 }
 int carXPReset(){
+  randvalPA = random(0,20);
   Xauto = 200;
-  Xauto = 200;
-  Yauto = 65;
+  Yauto = 65-randvalPA;
   Xsvjetla1 = 203;
-  Ysvjetla1 = 70;
+  Ysvjetla1 = 70-randvalPA;
   Xsvjetla2 = 222;
-  Ysvjetla2 = 70;
+  Ysvjetla2 = 70-randvalPA;
   Xretrovizor = 197;
-  Yretrovizor = 74;
+  Yretrovizor = 74-randvalPA;
   Xstaklo = 204;
-  Ystaklo = 78;
+  Ystaklo = 78-randvalPA;
   Xssvjetla1 = 204;
-  Yssvjetla1 = 101;
+  Yssvjetla1 = 101-randvalPA;
   Xssvjetla2 = 221;
-  Yssvjetla2 = 101;
+  Yssvjetla2 = 101-randvalPA;
 }
 int car2XP(int y){
   Xauto2 += 20 +y;
@@ -788,6 +789,7 @@ void loop() {
     tft.setCursor(20, 200);
     tft.println(score);
     if (Xssvjetla2 <= -60){
+      randval = random(5, 20);
       carXPReset();       
     } else if (Yssvjetla2 <= -1){
       carYP(270);
@@ -823,6 +825,7 @@ void loop() {
   }  
   if (dead == true){
     Serial.print(score);
+    randval = random(5, 20);
     onetime = true;
     eintime = true;
     start = false;
