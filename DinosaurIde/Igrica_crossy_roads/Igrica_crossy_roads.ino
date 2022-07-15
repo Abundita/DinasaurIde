@@ -4,6 +4,7 @@
 #define TFT_DC 21
 Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC);
 // Coin
+int score = 0;
 int randval = random(10, 210);
 int Xkocka1 = 208.7;
 int Ykocka1 = randval;
@@ -286,7 +287,7 @@ int dino(){
   tft.drawTriangle(Xtrokut11, Ytrokut11, Xtrokut12, Ytrokut12, Xtrokut13, Ytrokut13, ILI9341_WHITE);
   tft.drawTriangle(Xtrokut21, Ytrokut21, Xtrokut22, Ytrokut22, Xtrokut23, Ytrokut23, ILI9341_WHITE);
   tft.drawTriangle(Xtrokut31, Ytrokut31, Xtrokut32, Ytrokut32, Xtrokut33, Ytrokut33, ILI9341_WHITE);
-  } 
+} 
 int car(){
   //auto
   tft.fillRoundRect(Xauto, Yauto, 31, 42, 5, ILI9341_BLUE);
@@ -541,7 +542,7 @@ int deathscreen (){
   tft.setRotation(3);
   tft.setTextColor(ILI9341_YELLOW);
   tft.setCursor(20, 200);
-  tft.println("SCORE =");
+  tft.println(score);
   //lubanja
   tft.fillCircle(160, 40, 30, ILI9341_WHITE);
   tft.fillRect(149, 45, 25, 42, ILI9341_WHITE);
@@ -742,12 +743,17 @@ void loop() {
     || inRange(X, Xkamion1 - 8.5, Xkamion1 + 8.5)          && inRange(Y, Ykamion1 - 8.5, Ykamion1+ 8.5)
     || inRange(X, Xkamion2 - 10, Xkamion2 + 10)            && inRange(Y, Ykamion2 - 10, Ykamion2 + 10 ))
     {
-      // hitbox za kocku
-     if (inRange(Xkocka1, Xkocka2 - 20, Xkocka2 + 20)        && inRange(Ykocka1, Ykocka2 - 20, Ykocka2 +20)
-     ||  inRange(Xkocka1, Xkocka2 - 20, Xkocka2 + 20)        && inRange(Ykocka1, Ykocka2 - 20, Ykocka2 +20))
       Serial.print("hit");
       deathscreen();
       dead = true;
+    }
+
+    // hitbox za kocku
+    if (inRange(Xglava, Xkocka2 - 5, Xkocka2 + 5)        && inRange(Yglava, Ykocka2 - 5, Ykocka2 +5 )
+    ||  inRange(Xglava, Xkocka2 - 5, Xkocka2 + 5)        && inRange(Ykocka1, Ykocka2 - 5, Ykocka2 +5 ))
+    {
+    Serial.print("coin collected");
+    score += 1;
     }
     // Ljevo desno kretanje
     if (StanjeTipkala >= 1300 and StanjeTipkala <= 2100){
@@ -803,6 +809,7 @@ void loop() {
     eintime = false;
   }  
   if (dead == true){
+    Serial.print(score);
     onetime = true;
     eintime = true;
     start = false;
@@ -811,7 +818,6 @@ void loop() {
     car2XPReset();
     truckXPreset();
     CoinRESET();
-  }  
-  
- } 
-}
+   }  
+  } 
+ }
