@@ -326,6 +326,10 @@ int truck(){
   //staklo
   tft.drawRect(Xkstaklo, Ykstaklo, 20, 5, ILI9341_BLACK);
 }
+int Coin(){
+  tft.fillRect(Xkocka1, Ykocka1, 15, 15, ILI9341_YELLOW);
+  tft.drawRect(Xkocka2, Ykocka2, 16, 16, ILI9341_BLACK);
+}
 int RoadXP() 
 {
   Xcesta1  += 20;
@@ -455,37 +459,37 @@ int car2XPReset(){
   Xssvjetla22 = 282;
   Yssvjetla22 = 14;
 }
-int truckXP(){
-  Xkamion1     += 20;
-  Xkamion2     += 20;
-  Xkretrovizor += 20;
-  Xksvjetla1   += 20;
-  Xksvjetla2   += 20;
-  Xkstaklo     += 20;
+int truckXP(int T){
+  Xkamion1     += 20+T;
+  Xkamion2     += 20+T;
+  Xkretrovizor += 20+T;
+  Xksvjetla1   += 20+T;
+  Xksvjetla2   += 20+T;
+  Xkstaklo     += 20+T;
 }
-int truckXM(){
-  Xkamion1     -= 20;
-  Xkamion2     -= 20;
-  Xkretrovizor -= 20;
-  Xksvjetla1   -= 20;
-  Xksvjetla2   -= 20;
-  Xkstaklo     -= 20;
+int truckXM(int T){
+  Xkamion1     -= 20+T;
+  Xkamion2     -= 20+T;
+  Xkretrovizor -= 20+T;
+  Xksvjetla1   -= 20+T;
+  Xksvjetla2   -= 20+T;
+  Xkstaklo     -= 20+T;
 }
-int truckYP() {
-  Ykamion1     += 20;
-  Ykamion2     += 20;
-  Ykretrovizor += 20;
-  Yksvjetla1   += 20;
-  Yksvjetla2   += 20;
-  Ykstaklo     += 20;
+int truckYP(int T) {
+  Ykamion1     += 20+T;
+  Ykamion2     += 20+T;
+  Ykretrovizor += 20+T;
+  Yksvjetla1   += 20+T;
+  Yksvjetla2   += 20+T;
+  Ykstaklo     += 20+T;
 }
-int truckYM(int z) {
-  Ykamion1     -= 20 +z;
-  Ykamion2     -= 20 +z;
-  Ykretrovizor -= 20 +z;
-  Yksvjetla1   -= 20 +z;
-  Yksvjetla2   -= 20 +z;
-  Ykstaklo     -= 20 +z;
+int truckYM(int T) {
+  Ykamion1     -= 20 +T;
+  Ykamion2     -= 20 +T;
+  Ykretrovizor -= 20 +T;
+  Yksvjetla1   -= 20 +T;
+  Yksvjetla2   -= 20 +T;
+  Ykstaklo     -= 20 +T;
 }
 int truckYP();
 bool inRange(int val, int minimum, int maximum)
@@ -648,6 +652,7 @@ void loop() {
     car();
     car2();
     dino();
+    Coin();
     
     // Citanje kontrola
     StanjeTipkala = analogRead(TipkaLR);
@@ -725,12 +730,12 @@ void loop() {
     if (StanjeTipkala >= 1300 and StanjeTipkala <= 2100){
       carXM(0);
       car2XM(0);
-      truckXM();
+      truckXM(0);
       RoadXM();
     }
 
     // Gore dole kretanje 
-    if (StanjeTipkalaUD >= 1300 and StanjeTipkalaUD <= 2100){
+    if (StanjeTipkalaUD >= 1300 and StanjeTipkalaUD <= 2100){ 
         move_bodyYP ();
         }
     if (StanjeTipkalaUD == 4095){
@@ -754,6 +759,11 @@ void loop() {
     } else if (Yssvjetla21 >= 250){
       car2YP(-320);
     }
+    if (Xksvjetla2 <= -60){
+      truckXPreset();       
+    } else if (Yksvjetla2 <= -80){
+      truckYP(280);
+    }
     if (Xcesta2 <= -80){
       RoadReset();
     }    
@@ -767,6 +777,18 @@ void loop() {
     delay (10);
     deathscreen();
     eintime = false;
+    onetime = false;
+    start = false;
   }  
+  if (dead == true){
+    onetime = true;
+    eintime = true;
+    start = false;
+    RoadReset();
+    carXPReset();
+    car2XPReset();
+    truckXPreset();
+  }  
+  
  } 
 }
