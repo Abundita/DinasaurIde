@@ -60,8 +60,7 @@ int Xksvjetla2 = 221;
 int Yksvjetla2 = 181;
 int Xkstaklo = 206;
 int Ykstaklo = 186;
-
-// Auto 
+// Auto
 int Xauto = 200;
 int Yauto = 65;
 int Xsvjetla1 = 203;
@@ -793,6 +792,9 @@ void loop() {
       truckXPreset();       
     } else if (Yksvjetla2 <= -80){
       truckYP(280);
+    }
+    if (Xkocka2 <= -80){
+      CoinRESET();       
     }
     if (Xcesta2 <= -80){
       RoadReset();
