@@ -655,21 +655,21 @@ void loop() {
     //Serial.println (StanjeTipkala);
     //Serial.println  (StanjeTipkalaUD);
     // Hit detection 
-    if (inRange(Xglava, Xauto - 5, Xauto + 5)             && inRange(Yglava, Yauto - 5, Yauto + 5) 
-    || inRange(Xglava, Xretrovizor - 5, Xretrovizor + 5)  && inRange(Yglava, Yretrovizor - 5, Yretrovizor + 5) 
-    || inRange(Xkapa2, Xauto - 5, Xauto + 5)              && inRange(Ykapa2, Yauto - 5, Yauto + 5) 
-    || inRange(Xnoga1, Xauto - 5, Xauto + 5)              && inRange(Ynoga1, Yauto - 5, Yauto + 5) 
-    || inRange(Xnoga2, Xauto - 5, Xauto + 5)              && inRange(Ynoga2, Yauto - 5, Yauto + 5) 
-    || inRange(Xrep, Xauto - 5, Xauto + 5)                && inRange(Yrep, Yauto - 5, Yauto + 5 ) 
-    || inRange(Xglava, Xssvjetla1 - 5, Xssvjetla1 + 5)    && inRange(Yglava, Yssvjetla1 - 5, Yssvjetla1 + 5) 
-    || inRange(Xglava, Xssvjetla2 - 5, Xssvjetla2 + 5)    && inRange(Yglava, Yssvjetla2 - 5, Yssvjetla2+ 5) 
-    || inRange(Xkapa2, Xssvjetla1 - 5, Xssvjetla1 + 5)    && inRange(Ykapa2, Yssvjetla1 - 5, Yssvjetla1+ 5) 
-    || inRange(Xrep, Xssvjetla1 - 5, Xssvjetla1 + 5)      && inRange(Xrep, Yssvjetla1 - 5, Yssvjetla1+ 5) 
-    || inRange(Xrep, Xssvjetla2 - 5, Xssvjetla2 + 5)      && inRange(Yrep, Yssvjetla2 - 5, Yssvjetla2+ 5) 
-    || inRange(X, Xssvjetla1 - 5, Xssvjetla1 + 5)         && inRange(Y, Yssvjetla1 - 5, Yssvjetla1+ 5)
-    || inRange(X, Xssvjetla2 - 5, Xssvjetla2 + 5)         && inRange(Y, Yssvjetla2 - 5, Yssvjetla2+ 5)
-    || inRange(X, Xssvjetla1 - 5, Xssvjetla1 + 5)         && inRange(Y, Yssvjetla1 - 5, Yssvjetla1+ 5)
-    || inRange(X, Xauto - 5, Xauto + 5)                   && inRange(Y, Yauto - 5, Yauto + 5))   
+    if (inRange(Xglava, Xauto - 10, Xauto + 10)             && inRange(Yglava, Yauto - 10, Yauto + 10) 
+    || inRange(Xglava, Xretrovizor - 10, Xretrovizor + 10)  && inRange(Yglava, Yretrovizor - 10, Yretrovizor + 10) 
+    || inRange(Xkapa2, Xauto - 10, Xauto + 10)              && inRange(Ykapa2, Yauto - 10, Yauto + 10) 
+    || inRange(Xnoga1, Xauto - 10, Xauto + 10)              && inRange(Ynoga1, Yauto - 10, Yauto + 10) 
+    || inRange(Xnoga2, Xauto - 10, Xauto + 10)              && inRange(Ynoga2, Yauto - 10, Yauto + 10) 
+    || inRange(Xrep, Xauto - 10, Xauto + 10)                && inRange(Yrep, Yauto - 10, Yauto + 10 ) 
+    || inRange(Xglava, Xssvjetla1 - 10, Xssvjetla1 + 10)    && inRange(Yglava, Yssvjetla1 - 10, Yssvjetla1 + 10) 
+    || inRange(Xglava, Xssvjetla2 - 10, Xssvjetla2 + 10)    && inRange(Yglava, Yssvjetla2 - 10, Yssvjetla2+ 10) 
+    || inRange(Xkapa2, Xssvjetla1 - 10, Xssvjetla1 + 10)    && inRange(Ykapa2, Yssvjetla1 - 10, Yssvjetla1+ 10) 
+    || inRange(Xrep, Xssvjetla1 - 10, Xssvjetla1 + 10)      && inRange(Xrep, Yssvjetla1 - 10, Yssvjetla1+ 10) 
+    || inRange(Xrep, Xssvjetla2 - 10, Xssvjetla2 + 10)      && inRange(Yrep, Yssvjetla2 - 10, Yssvjetla2+ 10) 
+    || inRange(X, Xssvjetla1 - 10, Xssvjetla1 + 10)         && inRange(Y, Yssvjetla1 - 10, Yssvjetla1+ 10)
+    || inRange(X, Xssvjetla2 - 10, Xssvjetla2 + 10)         && inRange(Y, Yssvjetla2 - 10, Yssvjetla2+ 10)
+    || inRange(X, Xssvjetla1 - 10, Xssvjetla1 + 10)         && inRange(Y, Yssvjetla1 - 10, Yssvjetla1+ 10)
+    || inRange(X, Xauto - 10, Xauto + 10)                   && inRange(Y, Yauto - 10, Yauto + 10 ))   
     {
       Serial.print("hit");
       dead = true;
@@ -700,7 +700,7 @@ void loop() {
     || inRange(Xglava, Xkamion2 - 20, Xkamion2 + 20)         && inRange(Yglava, Ykamion2 - 20, Ykamion2 + 20)  
     || inRange(Xglava, Xkretrovizor - 20, Xkretrovizor + 20) && inRange(Yglava, Ykretrovizor - 2, Ykretrovizor + 20) 
     || inRange(Xkapa2, Xkamion2 - 20, Xkamion2 + 20)         && inRange(Ykapa2, Ykamion2 - 20, Ykamion2 + 20) 
-    || inRange(Xnoga1, Xkamion1 - 20, Xkamion1 + 28)        && inRange(Ynoga1, Ykamion1 - 46, Ykamion1 + 20)
+    || inRange(Xnoga1, Xkamion1 - 20, Xkamion1 + 28)         && inRange(Ynoga1, Ykamion1 - 46, Ykamion1 + 20)
     || inRange(Xnoga1, Xkamion2 - 20, Xkamion2+ 20)          && inRange(Ynoga1, Ykamion2 - 20, Ykamion2 + 20) 
     || inRange(Xnoga2, Xkamion1 - 20, Xkamion1 + 20)         && inRange(Ynoga2, Ykamion1 - 20, Ykamion1 + 20)
     || inRange(Xnoga2, Xkamion2 - 20, Xkamion2+ 20)          && inRange(Ynoga2, Ykamion2 - 20, Ykamion2 + 20)
@@ -714,8 +714,8 @@ void loop() {
     || inRange(Xrep, Xksvjetla2 - 20, Xksvjetla2 + 20)       && inRange(Xrep, Yksvjetla2 - 20, Yksvjetla2+ 20)
     || inRange(X, Xksvjetla1 - 20, Xksvjetla2 + 20)          && inRange(Y, Yksvjetla1 - 20, Yksvjetla1+ 20)
     || inRange(X, Xksvjetla2 - 20, Xksvjetla2 + 20)          && inRange(Y, Yksvjetla2 - 20, Yksvjetla2+ 20)
-    || inRange(X, Xkamion1 - 20, Xkamion1 + 28)            && inRange(Y, Ykamion1 - 20, Ykamion1+ 20)
-    || inRange(X, Xkamion2 - 20, Xkamion2 + 20)            && inRange(Y, Ykamion2 - 20, Ykamion2 + 50))
+    || inRange(X, Xkamion1 - 20, Xkamion1 + 28)              && inRange(Y, Ykamion1 - 20, Ykamion1+ 20)
+    || inRange(X, Xkamion2 - 20, Xkamion2 + 20)              && inRange(Y, Ykamion2 - 20, Ykamion2 + 50))
     {
       Serial.print("hit");
       deathscreen();
@@ -742,16 +742,10 @@ void loop() {
     car2YP(-15);
     truckYM(-15);
 
-    if (Xssvjetla2 <= -20){
-      carXPReset(); 
-      carYP(270);      
-    }
     if (Xssvjetla2 <= -60){
       carXPReset();       
     } else if (Yssvjetla2 <= -1){
       carYP(270);
-    } else if (Yksvjetla1 <= -60){
-      truckXPreset();
     }
     
     if (Xssvjetla21 <= -20){
