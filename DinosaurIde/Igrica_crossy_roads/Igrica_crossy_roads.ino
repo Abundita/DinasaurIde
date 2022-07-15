@@ -49,22 +49,22 @@ int Xksvjetla2 = 221;
 int Yksvjetla2 = 181;
 int Xkstaklo = 206;
 int Ykstaklo = 186;
-
-// Auto 
+// Auto
+int randvalPA = random(10, 210);
 int Xauto = 200;
-int Yauto = 65;
+int Yauto = randvalPA;
 int Xsvjetla1 = 203;
-int Ysvjetla1 = 70;
+int Ysvjetla1 = randvalPA;
 int Xsvjetla2 = 222;
-int Ysvjetla2 = 70;
+int Ysvjetla2 = randvalPA;
 int Xretrovizor = 197;
-int Yretrovizor = 74;
+int Yretrovizor = randvalPA;
 int Xstaklo = 204;
-int Ystaklo = 78;
+int Ystaklo = randvalPA;
 int Xssvjetla1 = 204;
-int Yssvjetla1 = 101;
+int Yssvjetla1 = randvalPA;
 int Xssvjetla2 = 221;
-int Yssvjetla2 = 101;
+int Yssvjetla2 = randvalPA;
 int xrandom = random(210);   
 int yrandom = random(170);
 //auto na drugu stranu
@@ -395,21 +395,21 @@ int carXP(int z){
   Xssvjetla2 += 20 +z;
 }
 int carXPReset(){
-  Xauto = 200;
-  Xauto = 200;
-  Yauto = 65;
-  Xsvjetla1 = 203;
-  Ysvjetla1 = 70;
-  Xsvjetla2 = 222;
-  Ysvjetla2 = 70;
-  Xretrovizor = 197;
-  Yretrovizor = 74;
-  Xstaklo = 204;
-  Ystaklo = 78;
-  Xssvjetla1 = 204;
-  Yssvjetla1 = 101;
-  Xssvjetla2 = 221;
-  Yssvjetla2 = 101;
+randvalPA = random(10, 210);
+Xauto = 200;
+Yauto = randvalPA;
+Xsvjetla1 = 203;
+Ysvjetla1 = randvalPA;
+Xsvjetla2 = 222;
+Ysvjetla2 = randvalPA;
+Xretrovizor = 197;
+Yretrovizor = randvalPA;
+Xstaklo = 204;
+Ystaklo = randvalPA;
+Xssvjetla1 = 204;
+Yssvjetla1 = randvalPA;
+Xssvjetla2 = 221;
+Yssvjetla2 = randvalPA;
 }
 int car2XP(int y){
   Xauto2 += 20 +y;
