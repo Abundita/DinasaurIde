@@ -3,7 +3,7 @@
 #define TFT_CS  5
 #define TFT_DC 21
 Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC);
-// Coin
+// Score and coin
 int score = 0;
 int randval = random(10, 210);
 int Xkocka1 = 208.7;
@@ -15,6 +15,10 @@ int CoinRANDOM(int R){
   Ykocka1 = 70 +R;
   Xkocka2 = 89 +R;
   Ykocka2 = 69 +R;
+}
+int coinkill (){
+  Ykocka1 = 300;
+  Ykocka2 = 300;
 }
 //treca cesta
 int Xcesta31 = 74;
@@ -541,6 +545,8 @@ int deathscreen (){
   tft.setRotation(3);
   tft.setTextColor(ILI9341_YELLOW);
   tft.setCursor(20, 200);
+  tft.println("Score =");
+  tft.setCursor(170, 200);
   tft.println(score);
   //lubanja
   tft.fillCircle(160, 40, 30, ILI9341_WHITE);
@@ -628,7 +634,8 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  // NEMOJTE RADITI VEKTORSKU KOLIZIJU U ARDUINO
+  // put your main code here, to run repeatedly: 
   StisnutMENU = digitalRead(TipkaMENU);
   StanjeTipkala2 = digitalRead(PinTipkalo);
   if (StanjeTipkala2 == LOW && onetime == true) {
@@ -669,11 +676,12 @@ void loop() {
     tft.fillScreen(ILI9341_BLACK);
     delay (10);
     road(); 
+    Coin();
     truck();
     car();
     car2();
     dino();
-    Coin();
+    
     
     // Citanje kontrola
     StanjeTipkala = analogRead(TipkaLR);
@@ -746,14 +754,15 @@ void loop() {
       deathscreen();
       dead = true;
     }
-
     // hitbox za kocku
     if (inRange(Xglava, Xkocka2 - 5, Xkocka2 + 5)        && inRange(Yglava, Ykocka2 - 5, Ykocka2 +5 )
-    ||  inRange(Xglava, Xkocka2 - 5, Xkocka2 + 5)        && inRange(Ykocka1, Ykocka2 - 5, Ykocka2 +5 ))
+    ||  inRange(Xglava, Xkocka2 - 5, Xkocka2 + 5)        && inRange(Ykocka1, Ykocka2 -5, Ykocka2 +5 ))
     {
-    Serial.print("coin collected");
-    score += 1;
-    }
+      Serial.print("coin collected");
+      coinkill();
+      delay(10);
+      score+=1;
+    } 
     // Ljevo desno kretanje
     if (StanjeTipkala >= 1300 and StanjeTipkala <= 2100){
       carXM(0);
@@ -775,7 +784,9 @@ void loop() {
     carYM(-15);
     car2YP(-15);
     truckYM(-15);
-
+    tft.setTextColor(ILI9341_YELLOW);
+    tft.setCursor(20, 200);
+    tft.println(score);
     if (Xssvjetla2 <= -60){
       carXPReset();       
     } else if (Yssvjetla2 <= -1){
@@ -815,6 +826,7 @@ void loop() {
     onetime = true;
     eintime = true;
     start = false;
+    score = 0;
     RoadReset();
     carXPReset();
     car2XPReset();
