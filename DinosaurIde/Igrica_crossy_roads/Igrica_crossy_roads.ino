@@ -4,26 +4,15 @@
 #define TFT_DC 21
 Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC);
 // Coin
-int score = 0;
-int randval = random(10, 210);
-int Xkocka1 = 208.7;
-int Ykocka1 = randval;
-int Xkocka2 = 208.7;
-int Ykocka2 = randval;
+int Xkocka1 = 90;
+int Ykocka1 = 70;
+int Xkocka2 = 89;
+int Ykocka2 = 69;
 int CoinRANDOM(int R){
   Xkocka1 = 90 +R;
   Ykocka1 = 70 +R;
   Xkocka2 = 89 +R;
   Ykocka2 = 69 +R;
-}
-//treca cesta
-int Xcesta31 = 74;
-int Ycesta31 = 1;
-int Xcesta32 = 96;
-int Ycesta32 = 1;
-int Cesta3(){
-  tft.fillRect(Xcesta31, Ycesta31, 46, 239, ILI9341_WHITE);
-  tft.fillRect(Xcesta32, Ycesta32, 3, 239, ILI9341_BLACK);
 }
 // road
 int Xcesta1 = 193;
@@ -60,7 +49,8 @@ int Xksvjetla2 = 221;
 int Yksvjetla2 = 181;
 int Xkstaklo = 206;
 int Ykstaklo = 186;
-// Auto
+
+// Auto 
 int Xauto = 200;
 int Yauto = 65;
 int Xsvjetla1 = 203;
@@ -286,7 +276,7 @@ int dino(){
   tft.drawTriangle(Xtrokut11, Ytrokut11, Xtrokut12, Ytrokut12, Xtrokut13, Ytrokut13, ILI9341_WHITE);
   tft.drawTriangle(Xtrokut21, Ytrokut21, Xtrokut22, Ytrokut22, Xtrokut23, Ytrokut23, ILI9341_WHITE);
   tft.drawTriangle(Xtrokut31, Ytrokut31, Xtrokut32, Ytrokut32, Xtrokut33, Ytrokut33, ILI9341_WHITE);
-} 
+  } 
 int car(){
   //auto
   tft.fillRoundRect(Xauto, Yauto, 31, 42, 5, ILI9341_BLUE);
@@ -336,21 +326,14 @@ int truck(){
   //staklo
   tft.drawRect(Xkstaklo, Ykstaklo, 20, 5, ILI9341_BLACK);
 }
-int Coin(){
-  tft.fillRect(Xkocka1, Ykocka1, 15, 15, ILI9341_YELLOW);
-  tft.drawRect(Xkocka2, Ykocka2, 16, 16, ILI9341_BLACK);
+int rijeka(){
+tft.fillRect(Xrijeka, Yrijeka, 46, 239, ILI9341_BLUE);
 }
-int CoinX(int C){
-  Xkocka1 -= 20 + C;
-  Xkocka2 -= 20 + C;
+int lopoc(){
+tft.fillCircle(Xlopoc1, Ylopoc1, 19, ILI9341_GREEN);
+tft.fillTriangle(Xlopoc2, Ylopoc2, 123, 23, 144, 23, ILI9341_BLUE);
 }
-int CoinRESET(){
-  randval = random(10, 210);
-  Xkocka1 = 208.7;
-  Ykocka1 = randval;
-  Xkocka2 = 208.7;
-  Ykocka2 = randval;
-}
+
 int RoadXP() 
 {
   Xcesta1  += 20;
@@ -480,37 +463,37 @@ int car2XPReset(){
   Xssvjetla22 = 282;
   Yssvjetla22 = 14;
 }
-int truckXP(int T){
-  Xkamion1     += 20+T;
-  Xkamion2     += 20+T;
-  Xkretrovizor += 20+T;
-  Xksvjetla1   += 20+T;
-  Xksvjetla2   += 20+T;
-  Xkstaklo     += 20+T;
+int truckXP(){
+  Xkamion1     += 20;
+  Xkamion2     += 20;
+  Xkretrovizor += 20;
+  Xksvjetla1   += 20;
+  Xksvjetla2   += 20;
+  Xkstaklo     += 20;
 }
-int truckXM(int T){
-  Xkamion1     -= 20+T;
-  Xkamion2     -= 20+T;
-  Xkretrovizor -= 20+T;
-  Xksvjetla1   -= 20+T;
-  Xksvjetla2   -= 20+T;
-  Xkstaklo     -= 20+T;
+int truckXM(){
+  Xkamion1     -= 20;
+  Xkamion2     -= 20;
+  Xkretrovizor -= 20;
+  Xksvjetla1   -= 20;
+  Xksvjetla2   -= 20;
+  Xkstaklo     -= 20;
 }
-int truckYP(int T) {
-  Ykamion1     += 20+T;
-  Ykamion2     += 20+T;
-  Ykretrovizor += 20+T;
-  Yksvjetla1   += 20+T;
-  Yksvjetla2   += 20+T;
-  Ykstaklo     += 20+T;
+int truckYP() {
+  Ykamion1     += 20;
+  Ykamion2     += 20;
+  Ykretrovizor += 20;
+  Yksvjetla1   += 20;
+  Yksvjetla2   += 20;
+  Ykstaklo     += 20;
 }
-int truckYM(int T) {
-  Ykamion1     -= 20 +T;
-  Ykamion2     -= 20 +T;
-  Ykretrovizor -= 20 +T;
-  Yksvjetla1   -= 20 +T;
-  Yksvjetla2   -= 20 +T;
-  Ykstaklo     -= 20 +T;
+int truckYM(int z) {
+  Ykamion1     -= 20 +z;
+  Ykamion2     -= 20 +z;
+  Ykretrovizor -= 20 +z;
+  Yksvjetla1   -= 20 +z;
+  Yksvjetla2   -= 20 +z;
+  Ykstaklo     -= 20 +z;
 }
 int truckYP();
 bool inRange(int val, int minimum, int maximum)
@@ -541,7 +524,7 @@ int deathscreen (){
   tft.setRotation(3);
   tft.setTextColor(ILI9341_YELLOW);
   tft.setCursor(20, 200);
-  tft.println(score);
+  tft.println("SCORE =");
   //lubanja
   tft.fillCircle(160, 40, 30, ILI9341_WHITE);
   tft.fillRect(149, 45, 25, 42, ILI9341_WHITE);
@@ -579,8 +562,20 @@ int truckXPreset(){
   Yksvjetla2 = 181+80;
   Xkstaklo = 206;
   Ykstaklo = 186+80;
-
 }
+//rijeka
+int Xrijeka = 100;
+int Yrijeka = 1;
+int Xlopoc1 = 123;
+int Ylopoc1 = 50;
+
+int Xlopoc2 = 123;
+int Ylopoc2 = 50;
+int Xlopoc21 = 123;
+int Ylopoc21 = 23;
+int Xlopoc22 = 144;
+int Ylopoc22 = 23;
+
 void setup() {
   // Loading screen  
   pinMode(PinTipkalo, INPUT_PULLUP);
@@ -673,7 +668,6 @@ void loop() {
     car();
     car2();
     dino();
-    Coin();
     
     // Citanje kontrola
     StanjeTipkala = analogRead(TipkaLR);
@@ -681,86 +675,78 @@ void loop() {
     //Serial.println (StanjeTipkala);
     //Serial.println  (StanjeTipkalaUD);
     // Hit detection 
-    if (inRange(Xglava, Xauto - 8.5, Xauto + 8.5)             && inRange(Yglava, Yauto - 8.5, Yauto + 8.5) 
-    || inRange(Xglava, Xretrovizor - 8.5, Xretrovizor + 8.5)  && inRange(Yglava, Yretrovizor - 8.5, Yretrovizor + 8.5) 
-    || inRange(Xkapa2, Xauto - 8.5, Xauto + 8.5)              && inRange(Ykapa2, Yauto - 8.5, Yauto + 8.5) 
-    || inRange(Xnoga1, Xauto - 8.5, Xauto + 8.5)              && inRange(Ynoga1, Yauto - 8.5, Yauto + 8.5) 
-    || inRange(Xnoga2, Xauto - 8.5, Xauto + 8.5)              && inRange(Ynoga2, Yauto - 8.5, Yauto + 8.5) 
-    || inRange(Xrep, Xauto - 8.5, Xauto + 8.5)                && inRange(Yrep, Yauto - 8.5, Yauto + 8.5 ) 
-    || inRange(Xglava, Xssvjetla1 - 8.5, Xssvjetla1 + 8.5)    && inRange(Yglava, Yssvjetla1 - 8.5, Yssvjetla1 + 8.5) 
-    || inRange(Xglava, Xssvjetla2 - 8.5, Xssvjetla2 + 8.5)    && inRange(Yglava, Yssvjetla2 - 8.5, Yssvjetla2+ 8.5) 
-    || inRange(Xkapa2, Xssvjetla1 - 8.5, Xssvjetla1 + 8.5)    && inRange(Ykapa2, Yssvjetla1 - 8.5, Yssvjetla1+ 8.5) 
-    || inRange(Xrep, Xssvjetla1 - 8.5, Xssvjetla1 + 8.5)      && inRange(Xrep, Yssvjetla1 - 8.5, Yssvjetla1+ 8.5) 
-    || inRange(Xrep, Xssvjetla2 - 8.5, Xssvjetla2 + 8.5)      && inRange(Yrep, Yssvjetla2 - 8.5, Yssvjetla2+ 8.5) 
-    || inRange(X, Xssvjetla1 - 8.5, Xssvjetla1 + 8.5)         && inRange(Y, Yssvjetla1 - 8.5, Yssvjetla1+ 8.5)
-    || inRange(X, Xssvjetla2 - 8.5, Xssvjetla2 + 8.5)         && inRange(Y, Yssvjetla2 - 8.5, Yssvjetla2+ 8.5)
-    || inRange(X, Xssvjetla1 - 5, Xssvjetla1 + 5)             && inRange(Y, Yssvjetla1 - 8.5, Yssvjetla1+ 8.5)
-    || inRange(X, Xauto - 8.5, Xauto + 8.5)                   && inRange(Y, Yauto - 8.5, Yauto + 8.5 ))   
+    if (inRange(Xglava, Xauto - 10, Xauto + 10)             && inRange(Yglava, Yauto - 10, Yauto + 10) 
+    || inRange(Xglava, Xretrovizor - 10, Xretrovizor + 10)  && inRange(Yglava, Yretrovizor - 10, Yretrovizor + 10) 
+    || inRange(Xkapa2, Xauto - 10, Xauto + 10)              && inRange(Ykapa2, Yauto - 10, Yauto + 10) 
+    || inRange(Xnoga1, Xauto - 10, Xauto + 10)              && inRange(Ynoga1, Yauto - 10, Yauto + 10) 
+    || inRange(Xnoga2, Xauto - 10, Xauto + 10)              && inRange(Ynoga2, Yauto - 10, Yauto + 10) 
+    || inRange(Xrep, Xauto - 10, Xauto + 10)                && inRange(Yrep, Yauto - 10, Yauto + 10 ) 
+    || inRange(Xglava, Xssvjetla1 - 10, Xssvjetla1 + 10)    && inRange(Yglava, Yssvjetla1 - 10, Yssvjetla1 + 10) 
+    || inRange(Xglava, Xssvjetla2 - 10, Xssvjetla2 + 10)    && inRange(Yglava, Yssvjetla2 - 10, Yssvjetla2+ 10) 
+    || inRange(Xkapa2, Xssvjetla1 - 10, Xssvjetla1 + 10)    && inRange(Ykapa2, Yssvjetla1 - 10, Yssvjetla1+ 10) 
+    || inRange(Xrep, Xssvjetla1 - 10, Xssvjetla1 + 10)      && inRange(Xrep, Yssvjetla1 - 10, Yssvjetla1+ 10) 
+    || inRange(Xrep, Xssvjetla2 - 10, Xssvjetla2 + 10)      && inRange(Yrep, Yssvjetla2 - 10, Yssvjetla2+ 10) 
+    || inRange(X, Xssvjetla1 - 10, Xssvjetla1 + 10)         && inRange(Y, Yssvjetla1 - 10, Yssvjetla1+ 10)
+    || inRange(X, Xssvjetla2 - 10, Xssvjetla2 + 10)         && inRange(Y, Yssvjetla2 - 10, Yssvjetla2+ 10)
+    || inRange(X, Xssvjetla1 - 10, Xssvjetla1 + 10)         && inRange(Y, Yssvjetla1 - 10, Yssvjetla1+ 10)
+    || inRange(X, Xauto - 10, Xauto + 10)                   && inRange(Y, Yauto - 10, Yauto + 10 ))   
     {
       Serial.print("hit");
       dead = true;
     }
     // car2
-    if (inRange(Xglava, Xauto2 - 8.5, Xauto2 + 8.5)            && inRange(Yglava, Yauto2 - 8.5, Yauto2 + 8.5) 
-    || inRange(Xglava, Xretrovizor2 - 8.5, Xretrovizor2 + 8.5) && inRange(Yglava, Yretrovizor2 - 8.5, Yretrovizor2 + 8.5) 
-    || inRange(Xkapa2, Xauto2 - 8.5, Xauto + 8.5)              && inRange(Ykapa2, Yauto2 - 8.5, Yauto2 + 8.5) 
-    || inRange(Xnoga1, Xauto2 - 8.5, Xauto2 + 8.5)             && inRange(Ynoga1, Yauto2 - 8.5, Yauto2 + 8.5) 
-    || inRange(Xnoga2, Xauto2 - 8.5, Xauto2 + 8.5)             && inRange(Ynoga2, Yauto2 - 8.5, Yauto2 + 8.5) 
-    || inRange(Xrep, Xauto2 - 8.5, Xauto2 + 8.5)               && inRange(Yrep, Yauto2 - 8.5, Yauto2 + 8.5 ) 
-    || inRange(Xglava, Xssvjetla21 - 8.5, Xssvjetla21 + 8.5)   && inRange(Yglava, Yssvjetla21 - 8.5, Yssvjetla21 + 8.5) 
-    || inRange(Xglava, Xssvjetla22 - 8.5, Xssvjetla22 + 8.5)   && inRange(Yglava, Yssvjetla22 - 8.5, Yssvjetla22+ 8.5) 
-    || inRange(Xkapa2, Xssvjetla21 - 8.5, Xssvjetla21 + 8.5)   && inRange(Ykapa2, Yssvjetla21 - 8.5, Yssvjetla21+ 8.5) 
-    || inRange(Xrep, Xssvjetla21 - 8.5, Xssvjetla21 + 8.5)     && inRange(Xrep, Yssvjetla21 - 8.5, Yssvjetla21+ 8.5) 
-    || inRange(Xrep, Xssvjetla22 - 8.5, Xssvjetla22 + 8.5)     && inRange(Yrep, Yssvjetla22 - 8.5, Yssvjetla22+ 8.5) 
-    || inRange(X, Xssvjetla21 - 8.5, Xssvjetla21 + 8.5)        && inRange(Y, Yssvjetla21 - 8.5, Yssvjetla21+ 8.5)
-    || inRange(X, Xssvjetla22 - 8.5, Xssvjetla22 + 8.5)        && inRange(Y, Yssvjetla22 - 8.5, Yssvjetla22+ 8.5)
-    || inRange(X, Xssvjetla21 - 8.5, Xssvjetla21 + 8.5)        && inRange(Y, Yssvjetla21 - 8.5, Yssvjetla21+ 8.5)
-    || inRange(X, Xauto2 - 8.5, Xauto2 + 8.5)                  && inRange(Y, Yauto2 - 8.5, Yauto2 + 8.5))
+    if (inRange(Xglava, Xauto2 - 10, Xauto2 + 10)            && inRange(Yglava, Yauto2 - 10, Yauto2 + 10) 
+    || inRange(Xglava, Xretrovizor2 - 10, Xretrovizor2 + 10) && inRange(Yglava, Yretrovizor2 - 10, Yretrovizor2 + 10) 
+    || inRange(Xkapa2, Xauto2 - 10, Xauto + 10)              && inRange(Ykapa2, Yauto2 - 10, Yauto2 + 10) 
+    || inRange(Xnoga1, Xauto2 - 10, Xauto2 + 10)             && inRange(Ynoga1, Yauto2 - 10, Yauto2 + 10) 
+    || inRange(Xnoga2, Xauto2 - 10, Xauto2 + 10)             && inRange(Ynoga2, Yauto2 - 10, Yauto2 + 10) 
+    || inRange(Xrep, Xauto2 - 10, Xauto2 + 10)               && inRange(Yrep, Yauto2 - 10, Yauto2 + 10 ) 
+    || inRange(Xglava, Xssvjetla21 - 10, Xssvjetla21 + 10)   && inRange(Yglava, Yssvjetla21 - 10, Yssvjetla21 + 10) 
+    || inRange(Xglava, Xssvjetla22 - 10, Xssvjetla22 + 10)   && inRange(Yglava, Yssvjetla22 - 10, Yssvjetla22+ 10) 
+    || inRange(Xkapa2, Xssvjetla21 - 10, Xssvjetla21 + 10)   && inRange(Ykapa2, Yssvjetla21 - 10, Yssvjetla21+ 10) 
+    || inRange(Xrep, Xssvjetla21 - 10, Xssvjetla21 + 10)     && inRange(Xrep, Yssvjetla21 - 10, Yssvjetla21+ 10) 
+    || inRange(Xrep, Xssvjetla22 - 10, Xssvjetla22 + 10)     && inRange(Yrep, Yssvjetla22 - 10, Yssvjetla22+ 10) 
+    || inRange(X, Xssvjetla21 - 10, Xssvjetla21 + 10)        && inRange(Y, Yssvjetla21 - 10, Yssvjetla21+ 10)
+    || inRange(X, Xssvjetla22 - 10, Xssvjetla22 + 10)        && inRange(Y, Yssvjetla22 - 10, Yssvjetla22+ 10)
+    || inRange(X, Xssvjetla21 - 10, Xssvjetla21 + 10)        && inRange(Y, Yssvjetla21 - 10, Yssvjetla21+ 10)
+    || inRange(X, Xauto2 - 10, Xauto2 + 10)                  && inRange(Y, Yauto2 - 10, Yauto2 + 10))
     {
       Serial.print("hit");
       deathscreen();
       dead = true;
     }
-    if (inRange(Xglava, Xkamion1 - 8.5, Xkamion1 + 8.5)    && inRange(Yglava, Ykamion1 - 8.5, Ykamion1 + 8.5)
-    || inRange(Xglava, Xkamion2 - 10, Xkamion2 + 10)       && inRange(Yglava, Ykamion2 - 10, Ykamion2 + 10)  
-    || inRange(Xglava, Xkretrovizor - 0, Xkretrovizor + 1) && inRange(Yglava, Ykretrovizor - 0, Ykretrovizor + 1) 
-    || inRange(Xkapa2, Xkamion2 - 10, Xkamion2 + 10)       && inRange(Ykapa2, Ykamion2 - 10, Ykamion2 + 10) 
-    || inRange(Xnoga1, Xkamion1 - 8.5, Xkamion1 + 8.5)     && inRange(Ynoga1, Ykamion1 - 8.5, Ykamion1 + 8.5)
-    || inRange(Xnoga1, Xkamion2 - 10, Xkamion2+ 10)        && inRange(Ynoga1, Ykamion2 - 10, Ykamion2 + 10) 
-    || inRange(Xnoga2, Xkamion1 - 8.5, Xkamion1 + 8.5)     && inRange(Ynoga2, Ykamion1 - 8.5, Ykamion1 + 8.5)
-    || inRange(Xnoga2, Xkamion2 - 10, Xkamion2+ 10)        && inRange(Ynoga2, Ykamion2 - 10, Ykamion2 + 10)
-    || inRange(Xrep, Xkamion1 - 8.5, Xkamion1 + 8.5)       && inRange(Yrep, Ykamion1 - 8.5, Ykamion1 + 8.5 )
-    || inRange(Xrep, Xkamion2 - 10, Xkamion2 + 10)         && inRange(Yrep, Ykamion2 - 10, Ykamion2 + 10 ) 
-    || inRange(Xglava, Xksvjetla1 - 0, Xksvjetla1 + 1)     && inRange(Yglava, Yksvjetla1 - 0, Yksvjetla1 + 1) 
-    || inRange(Xglava, Xksvjetla2 - 0, Xksvjetla2 + 1)     && inRange(Yglava, Yksvjetla2 - 0, Yksvjetla2+ 1) 
-    || inRange(Xkapa2, Xkamion1 - 8.5, Xkamion1 + 8.5)     && inRange(Ykapa2, Ykamion1 - 8.5, Ykamion1+ 8.5) 
-    || inRange(Xkapa2, Xkamion2 - 10, Xkamion2 + 10)       && inRange(Ykapa2, Ykamion2 - 10, Ykamion2+ 10)
-    || inRange(Xrep, Xksvjetla1 - 0, Xksvjetla1 + 1)       && inRange(Xrep, Yksvjetla1 - 1, Yksvjetla1+ 1) 
-    || inRange(Xrep, Xksvjetla2 - 0, Xksvjetla2 + 1)       && inRange(Xrep, Yksvjetla2 - 1, Yksvjetla2+ 1)
-    || inRange(X, Xksvjetla1 - 0, Xksvjetla2 + 1)          && inRange(Y, Yksvjetla1 - 0, Yksvjetla1+ 1)
-    || inRange(X, Xksvjetla2 - 0, Xksvjetla2 + 1)          && inRange(Y, Yksvjetla2 - 0, Yksvjetla2+ 1)
-    || inRange(X, Xkamion1 - 8.5, Xkamion1 + 8.5)          && inRange(Y, Ykamion1 - 8.5, Ykamion1+ 8.5)
-    || inRange(X, Xkamion2 - 10, Xkamion2 + 10)            && inRange(Y, Ykamion2 - 10, Ykamion2 + 10 ))
+    if (inRange(Xglava, Xkamion1 - 20, Xkamion1 + 20)        && inRange(Yglava, Ykamion1 - 20, Ykamion1 + 22)
+    ||  inRange(Xglava, Xkamion1 - 20, Xkamion1 + 20)        && inRange(Yglava, Ykamion1 - 20, Ykamion1 + 20) 
+    || inRange(Xglava, Xkamion2 - 20, Xkamion2 + 20)         && inRange(Yglava, Ykamion2 - 20, Ykamion2 + 20)  
+    || inRange(Xglava, Xkretrovizor - 20, Xkretrovizor + 20) && inRange(Yglava, Ykretrovizor - 2, Ykretrovizor + 20) 
+    || inRange(Xkapa2, Xkamion2 - 20, Xkamion2 + 20)         && inRange(Ykapa2, Ykamion2 - 20, Ykamion2 + 20) 
+    || inRange(Xnoga1, Xkamion1 - 20, Xkamion1 + 28)         && inRange(Ynoga1, Ykamion1 - 46, Ykamion1 + 20)
+    || inRange(Xnoga1, Xkamion2 - 20, Xkamion2+ 20)          && inRange(Ynoga1, Ykamion2 - 20, Ykamion2 + 20) 
+    || inRange(Xnoga2, Xkamion1 - 20, Xkamion1 + 20)         && inRange(Ynoga2, Ykamion1 - 20, Ykamion1 + 20)
+    || inRange(Xnoga2, Xkamion2 - 20, Xkamion2+ 20)          && inRange(Ynoga2, Ykamion2 - 20, Ykamion2 + 20)
+    || inRange(Xrep, Xkamion1 - 20, Xkamion1 + 38)           && inRange(Yrep, Ykamion1 - 20, Ykamion1 + 20 )
+    || inRange(Xrep, Xkamion2 - 20, Xkamion2 + 20)           && inRange(Yrep, Ykamion2 - 20, Ykamion2 + 20 ) 
+    || inRange(Xglava, Xksvjetla1 - 20, Xksvjetla1 + 20)     && inRange(Yglava, Yksvjetla1 - 20, Yksvjetla1 + 20) 
+    || inRange(Xglava, Xksvjetla2 - 20, Xksvjetla2 + 20)     && inRange(Yglava, Yksvjetla2 - 20, Yksvjetla2+ 20) 
+    || inRange(Xkapa2, Xkamion1 - 20, Xkamion1 + 28)         && inRange(Ykapa2, Ykamion1 - 20, Ykamion1+ 46) 
+    || inRange(Xkapa2, Xkamion2 - 20, Xkamion2 + 20)         && inRange(Ykapa2, Ykamion2 - 20, Ykamion2+ 20)
+    || inRange(Xrep, Xksvjetla1 - 20, Xksvjetla1 + 28)       && inRange(Xrep, Yksvjetla1 - 20, Yksvjetla1+ 20) 
+    || inRange(Xrep, Xksvjetla2 - 20, Xksvjetla2 + 20)       && inRange(Xrep, Yksvjetla2 - 20, Yksvjetla2+ 20)
+    || inRange(X, Xksvjetla1 - 20, Xksvjetla2 + 20)          && inRange(Y, Yksvjetla1 - 20, Yksvjetla1+ 20)
+    || inRange(X, Xksvjetla2 - 20, Xksvjetla2 + 20)          && inRange(Y, Yksvjetla2 - 20, Yksvjetla2+ 20)
+    || inRange(X, Xkamion1 - 20, Xkamion1 + 28)              && inRange(Y, Ykamion1 - 20, Ykamion1+ 20)
+    || inRange(X, Xkamion2 - 20, Xkamion2 + 20)              && inRange(Y, Ykamion2 - 20, Ykamion2 + 50))
     {
       Serial.print("hit");
       deathscreen();
       dead = true;
-    }
-
-    // hitbox za kocku
-    if (inRange(Xglava, Xkocka2 - 5, Xkocka2 + 5)        && inRange(Yglava, Ykocka2 - 5, Ykocka2 +5 )
-    ||  inRange(Xglava, Xkocka2 - 5, Xkocka2 + 5)        && inRange(Ykocka1, Ykocka2 - 5, Ykocka2 +5 ))
-    {
-    Serial.print("coin collected");
-    score += 1;
     }
     // Ljevo desno kretanje
     if (StanjeTipkala >= 1300 and StanjeTipkala <= 2100){
       carXM(0);
       car2XM(0);
-      truckXM(0);
+      truckXM();
       RoadXM();
-      CoinX(0);
     }
 
     // Gore dole kretanje 
@@ -788,14 +774,6 @@ void loop() {
     } else if (Yssvjetla21 >= 250){
       car2YP(-320);
     }
-    if (Xksvjetla2 <= -60){
-      truckXPreset();       
-    } else if (Yksvjetla2 <= -80){
-      truckYP(280);
-    }
-    if (Xkocka2 <= -80){
-      CoinRESET();       
-    }
     if (Xcesta2 <= -80){
       RoadReset();
     }    
@@ -810,16 +788,5 @@ void loop() {
     deathscreen();
     eintime = false;
   }  
-  if (dead == true){
-    Serial.print(score);
-    onetime = true;
-    eintime = true;
-    start = false;
-    RoadReset();
-    carXPReset();
-    car2XPReset();
-    truckXPreset();
-    CoinRESET();
-   }  
-  } 
- }
+ } 
+}
